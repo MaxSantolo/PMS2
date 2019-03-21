@@ -50,12 +50,7 @@ $smail = $mail->sendEmail('max@swhub.io','MAx','Test',$body);*/
 $conn = $db->getSiteConn();
 
 
-echo $mailbody = PMSBase::execChargesRequests();
 
-
-
-$mail = new Mail();
-$smail = $mail->sendEmail('max@swhub.io','Max','PMS - Cedolini di sconto inseriti',$mailbody);
 
 //builder::backToPage("/menu.php");
 

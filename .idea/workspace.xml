@@ -40,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1026">
-              <caret line="57" column="92" selection-start-line="57" selection-start-column="92" selection-end-line="57" selection-end-column="92" />
+            <state relative-caret-position="738">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
         </entry>
@@ -117,7 +117,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mail.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Mail.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/struct/classes/Mail.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
@@ -126,45 +126,6 @@
                 <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="e#18#43#0" expanded="true" />
-                <element signature="e#156#164#1" expanded="true" />
-                <element signature="e#174#199#0" expanded="true" />
-                <element signature="e#325#331#1" expanded="true" />
-                <element signature="e#460#468#1" expanded="true" />
-                <element signature="e#521#546#0" expanded="true" />
-                <element signature="e#20#45#0" expanded="true" />
-                <element signature="e#233#258#0" expanded="true" />
-                <element signature="e#347#353#1" expanded="true" />
-                <element signature="e#475#483#1" expanded="true" />
-                <element signature="e#539#564#0" expanded="true" />
-                <element signature="e#18#43#0" expanded="true" />
-                <element signature="e#144#152#1" expanded="true" />
-                <element signature="e#354#360#1" expanded="true" />
-                <element signature="e#831#856#0" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
-                <element signature="e#304#312#1" expanded="true" />
-                <element signature="e#334#342#1" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-                <element signature="e#20#45#0" expanded="true" />
-                <element signature="e#101#109#1" expanded="true" />
-                <element signature="e#133#141#1" expanded="true" />
-                <element signature="e#164#172#1" expanded="true" />
-                <element signature="e#209#217#1" expanded="true" />
-                <element signature="e#219#225#1" expanded="true" />
-                <element signature="e#242#248#1" expanded="true" />
-                <element signature="e#387#412#0" expanded="true" />
-                <element signature="e#520#528#1" expanded="true" />
-                <element signature="e#550#558#1" expanded="true" />
-                <element signature="e#641#666#0" expanded="true" />
-                <element signature="e#20#45#0" expanded="true" />
-                <element signature="e#201#209#1" expanded="true" />
-                <element signature="e#273#298#0" expanded="true" />
-                <element signature="e#354#379#0" expanded="true" />
-                <element signature="e#447#455#1" expanded="true" />
-                <element signature="e#474#482#1" expanded="true" />
-                <element signature="e#571#579#1" expanded="true" />
-                <element signature="e#686#711#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -299,12 +260,12 @@
         <option value="$PROJECT_DIR$/options/edit_ini_file.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/struct/classes/builder.php" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/crons/monthly.php" />
         <option value="$PROJECT_DIR$/struct/classes/PMSBase.php" />
         <option value="$PROJECT_DIR$/points.ini" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/struct/classes/Mail.php" />
+        <option value="$PROJECT_DIR$/test.php" />
       </list>
     </option>
   </component>
@@ -346,6 +307,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -378,7 +340,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -481,11 +442,12 @@
       <workItem from="1553158376829" duration="760000" />
       <workItem from="1553163651741" duration="9426000" />
       <workItem from="1553175722632" duration="181000" />
+      <workItem from="1553176072761" duration="23000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="464115000" />
+    <option name="totallyTimeSpent" value="464138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -497,12 +459,12 @@
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17760417" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -856,13 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="57" column="92" selection-start-line="57" selection-start-column="92" selection-end-line="57" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crons/monthly.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -895,46 +850,14 @@
             <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="e#18#43#0" expanded="true" />
-            <element signature="e#156#164#1" expanded="true" />
-            <element signature="e#174#199#0" expanded="true" />
-            <element signature="e#325#331#1" expanded="true" />
-            <element signature="e#460#468#1" expanded="true" />
-            <element signature="e#521#546#0" expanded="true" />
-            <element signature="e#20#45#0" expanded="true" />
-            <element signature="e#233#258#0" expanded="true" />
-            <element signature="e#347#353#1" expanded="true" />
-            <element signature="e#475#483#1" expanded="true" />
-            <element signature="e#539#564#0" expanded="true" />
-            <element signature="e#18#43#0" expanded="true" />
-            <element signature="e#144#152#1" expanded="true" />
-            <element signature="e#354#360#1" expanded="true" />
-            <element signature="e#831#856#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
-            <element signature="e#304#312#1" expanded="true" />
-            <element signature="e#334#342#1" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="e#20#45#0" expanded="true" />
-            <element signature="e#101#109#1" expanded="true" />
-            <element signature="e#133#141#1" expanded="true" />
-            <element signature="e#164#172#1" expanded="true" />
-            <element signature="e#209#217#1" expanded="true" />
-            <element signature="e#219#225#1" expanded="true" />
-            <element signature="e#242#248#1" expanded="true" />
-            <element signature="e#387#412#0" expanded="true" />
-            <element signature="e#520#528#1" expanded="true" />
-            <element signature="e#550#558#1" expanded="true" />
-            <element signature="e#641#666#0" expanded="true" />
-            <element signature="e#20#45#0" expanded="true" />
-            <element signature="e#201#209#1" expanded="true" />
-            <element signature="e#273#298#0" expanded="true" />
-            <element signature="e#354#379#0" expanded="true" />
-            <element signature="e#447#455#1" expanded="true" />
-            <element signature="e#474#482#1" expanded="true" />
-            <element signature="e#571#579#1" expanded="true" />
-            <element signature="e#686#711#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
