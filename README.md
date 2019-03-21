@@ -11,3 +11,9 @@
 <li>DatePicker
 
 </ul>
+
+<hr>
+21/03/2019 - Versione 2.0.17b:<br>
+<li>Cambiato server SMTP in Google
+<li>Inserita la possibilità di assegnare manualmente i cedolini
+<li>Inserito il file .gitignore

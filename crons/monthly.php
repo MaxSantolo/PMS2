@@ -10,7 +10,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/Mail.php';
 builder::startSession();
 builder::Header('Monthly Cronjob','geobg.png');
 
-
-$mailbody = PMSBase::execChargesRequests();
 $mail = new Mail();
-$smail = $mail->sendEmail($mail->tomail,$mail->toname,'PMS - Cedolini di sconto inseriti',$mailbody,$mail->copies);
+$mailbody = PMSBase::execChargesRequests();
+$mail->sendEmail($mail->tomail,$mail->toname,'PMS - Cedolini di sconto inseriti',$mailbody,$mail->copies);
+
+
+
+
+
+
+//builder::backToPage("/menu.php");

@@ -568,7 +568,6 @@ class PMSBase
         }
     }
 
-
     //crea la continuità contrattuale per gli utenti che non ce l'hanno - non in uso la funzione viene chiamata parametrizzata dentro calcMonthsContinuity
     public static function createContinuities() {
         $db = new DB();
@@ -879,17 +878,19 @@ class PMSBase
 
         if ($requests->num_rows != 0) {
             $emailbody = "<p>Cedolini generati dal sistema a PUNTI</p>
-                                <table style='border: 1px solid #000000;width: 100%;text-align: left;padding: 3px 2px;font-size: 12px;'>
-                                <thead style='border: 1px solid #000000;'>
-                                    <th style='border: 1px solid #000000;'>CENTRO</th>
-                                    <th style='border: 1px solid #000000;'>CLIENTE</th>
-                                    <th style='border: 1px solid #000000;'>CATEGORIA</th>
-                                    <th style='border: 1px solid #000000;'>VOCE DOM2</th>
-                                    <th style='border: 1px solid #000000;'>IMPORTO</th>
-                                    <th style='border: 1px solid #000000;'>DOM2 USER ID</th>
-                                    <th style='border: 1px solid #000000;'>DOM2 CONTRACT ID</th>
-                                    <th style='border: 1px solid #000000;'>CEDOLINO</th>
-                                </thead><tbody style='border: 1px solid #000000;'>";
+                                <table>
+                                <tbody>
+                                <tr>
+                                    <td style=\"border: 1px solid #000000;\">CENTRO</td>
+                                    <td style=\"border: 1px solid #000000;\">CLIENTE</td>
+                                    <td style=\"border: 1px solid #000000;\">CATEGORIA</td>
+                                    <td style=\"border: 1px solid #000000;\">VOCE DOM2</td>
+                                    <td style=\"border: 1px solid #000000;\">IMPORTO</td>
+                                    <td style=\"border: 1px solid #000000;\">DOM2 USER ID</td>
+                                    <td style=\"border: 1px solid #000000;\">DOM2 CONTRACT ID</td>
+                                    <td style=\"border: 1px solid #000000;\">CEDOLINO</td>
+                                </tr>
+                                ";
             $counter = 0;
             while ($req = $requests->fetch_assoc()) {
 
@@ -915,14 +916,14 @@ class PMSBase
                     $dom2code = DB::transcode($charges[$i]['category']);
                     //preparo il corpo della mail per la notifica (il corpo viene ritornato dalla funzione)
                     $emailbody .= "<tr style='border: 1px solid #000000;'>
-                        <td style='border: 1px solid #000000;'>{$charges[$i]['center']}</td>
-                        <td style='border: 1px solid #000000;'>{$charges[$i]['company']}</td>
-                        <td style='border: 1px solid #000000;'>{$charges[$i]['category']}</td>
-                        <td style='border: 1px solid #000000;'>{$dom2code}</td>
-                        <td style='border: 1px solid #000000;'>{$value}</td>
-                        <td style='border: 1px solid #000000;'>{$dom2UserId}</td>
-                        <td style='border: 1px solid #000000;'>{$dom2ContractId}</td>
-                        <td style='border: 1px solid #000000;'>{$cedoNum}</td>
+                        <td style=\"border: 1px solid #000000;\">{$charges[$i]['center']}</td>
+                        <td style=\"border: 1px solid #000000;\">{$charges[$i]['company']}</td>
+                        <td style=\"border: 1px solid #000000;\">{$charges[$i]['category']}</td>
+                        <td style=\"border: 1px solid #000000;\">{$dom2code}</td>
+                        <td style=\"border: 1px solid #000000;\">{$value}</td>
+                        <td style=\"border: 1px solid #000000;\">{$dom2UserId}</td>
+                        <td style=\"border: 1px solid #000000;\">{$dom2ContractId}</td>
+                        <td style=\"border: 1px solid #000000;\">{$cedoNum}</td>
                         </tr>
             ";
                     //preparo le singole SQL da eseguire per inserire i cedolini

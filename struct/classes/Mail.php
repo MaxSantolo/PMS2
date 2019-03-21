@@ -13,15 +13,18 @@ class Mail extends PHPMailer
         $ini = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/points.ini',true);
         $this->rulebookUrl = $ini['Punti']['Regolamento'];
         $this->newsletterPoints = $ini['Punti']['Newsletter'];
-
         $this->tomail = $ini['Email']['NotificaA'];
         $this->toname = $ini['Email']['NomeNotificaA'];
         $this->copies = array($ini['Email']['NotificaCC1'],$ini['Email']['NotificaCC2'],$ini['Email']['NotificaCC3'],$ini['Email']['NotificaCC4']);
         $this->frommail = $ini['Email']['From'];
         $this->fromname = $ini['Email']['FromName'];
-        $this->CharSet="UTF-8";
-        $this->Host = '10.20.20.227';
-        $this->SMTPAuth = false;
+        $this->CharSet= 'UTF-8';
+        $this->Host = 'smtp.gmail.com';
+        $this->SMTPAuth = true;
+        $this->Port = 587;
+        $this->SMTPSecure = 'tls';
+        $this->Username = "info@pickcenter.com";
+        $this->Password = "fm105pick";
         $this->isSMTP();
         parent::__construct($exceptions);
     }
@@ -39,10 +42,10 @@ class Mail extends PHPMailer
         }
 
         $this->AddReplyTo("info@pickcenter.com", "Informazioni");
-        $this->WordWrap = 50;
-        $this->IsHTML(true);
         $this->Subject = $subject;
         $this->Body    = $body;
+        $this->IsHTML(true);
+
         $this->AltBody = 'Il messaggio è in formato HTML si prega di attivare questa modalità';
         return $this->send();
 

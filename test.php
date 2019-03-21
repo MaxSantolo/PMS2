@@ -47,17 +47,17 @@ var_dump(DB::chargesToDo($data,1781));*/
 /*$mail = new Mail();
 $smail = $mail->sendEmail('max@swhub.io','MAx','Test',$body);*/
 
-
-$db = new DB();
 $conn = $db->getSiteConn();
 
 
-/*$mailbody = PMSBase::execChargesRequests();
+echo $mailbody = PMSBase::execChargesRequests();
+
+
 
 $mail = new Mail();
-$smail = $mail->sendEmail($mail->tomail,$mail->toname,'PMS - Cedolini di sconto inseriti',$mailbody,$mail->copies);
+$smail = $mail->sendEmail('max@swhub.io','Max','PMS - Cedolini di sconto inseriti',$mailbody);
 
-builder::backToPage("/menu.php");*/
+//builder::backToPage("/menu.php");
 
 
 

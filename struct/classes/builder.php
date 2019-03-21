@@ -248,7 +248,7 @@ public static function Navbar($table) {
           <div class="dropdown-divider"></div>          
           <a class="dropdown-item" href="/options/log.php?thcolor=000&bg=optbg.jpg" onclick="showloader()">LOG</a>
           <a class="dropdown-item" href="/crons/primary_daily.php" onclick="showloader()">Aggiorna Tutto</a>
-          <a class="dropdown-item" href="/test.php" onclick="showloader()">Manda Cedolini a Dom2</a>
+          <a class="dropdown-item" href="crons/monthly.php" onclick="showloader()">Manda Cedolini a Dom2</a>
         </div>
       </li>
 
