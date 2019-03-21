@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="crm_punti@192.168.1.10" uuid="6d4d4e3b-4f81-4b64-a253-5e22b7773180">
+      <database-info product="MySQL" version="5.1.66" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:crm_punti</introspection-schemas>
+    </data-source>
+    <data-source name="Sitegroud" uuid="924500ba-9d63-44a6-96b0-5c0c154cc0e4">
+      <database-info product="MySQL" version="5.6.40-84.0-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>pickcent_admin</user-name>
+      <introspection-schemas>*:pickcent_23</introspection-schemas>
+    </data-source>
+    <data-source name="crm@192.168.1.10" uuid="22ca0c6b-a6fd-44b0-b516-217cbfde2c1a">
+      <database-info product="MySQL" version="5.1.66" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:crm</introspection-schemas>
+    </data-source>
+  </component>
+</project>

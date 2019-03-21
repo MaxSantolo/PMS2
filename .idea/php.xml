@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/bin/vendor/composer" />
+      <path value="$PROJECT_DIR$/bin/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/bin/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/bin/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/bin/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/bin/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/bin/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/bin/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/bin/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/bin/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/bin/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/bin/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/bin/vendor/guzzlehttp/guzzle" />
+    </include_path>
+  </component>
+</project>

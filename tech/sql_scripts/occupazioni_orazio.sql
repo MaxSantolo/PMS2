@@ -1,0 +1,1 @@
+select timestamp(occu.data, occu.ora_inizio) as inizio, timestamp(occu.data, occu.ora_fine) as fine from book_occupazione as occu, book_risorsa as uff where occu.id_risorsa = uff.id  and uff.vors_codice = 'BOE SR ORA' and occu.data >= curdate() 

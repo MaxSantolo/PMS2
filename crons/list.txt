@@ -1,0 +1,25 @@
+Primario - tutte le sere ore 23:00, circa 15 minuti
+primary_daily.php
+    PMSBase::ReadInvoices();
+    PMSBase::
+    PMSBase::CheckCreateUsers();
+    PMSBase::UpdateUsers();
+    PMSBase::updateInvoicesStatus();
+    PMSBase::generateCredits();
+    PMSBase::generateContinuityCredits();
+
+Secondario - tutte le sere 23:50
+secondsary_daily_cron.php
+    PMSBase::addCreditsToSite();
+
+Mensile - tutti i mesi il giorno xx
+monthly.php
+    $mailbody = PMSBase::execChargesRequests();
+    $mail = new Mail();
+    $smail = $mail->sendEmail($mail->tomail,$mail->toname,'PMS - Cedolini di sconto inseriti',$mailbody,$mail->copies);
+
+Annuale - 31-12 ore 23
+yearly_cron.php
+    PMSBase::updAnniversaryBirthdayNewYear();
+
+

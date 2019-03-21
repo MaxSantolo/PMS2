@@ -1,0 +1,14 @@
+credits.ajax.php
+- Togliere commento all'accredito diretto dei punti al sito
+
+pickservice1@gmail.com
+fm105pick
+01/01/1995
+
+
+pickservice2@gmail.com
+fm105pick
+01/01/1995
+
+
+
