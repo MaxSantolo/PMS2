@@ -17,3 +17,6 @@
 <li>Cambiato server SMTP in Google
 <li>Inserita la possibilità di assegnare manualmente i cedolini
 <li>Inserito il file .gitignore
+<br><hr>
+22/03/2019 - Versione 2.0.17b:<br>
+<li>Aggiunti menu e finestra di conferma all'inserimento dei cedolini 

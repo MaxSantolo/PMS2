@@ -14,9 +14,13 @@ $mail = new Mail();
 $mailbody = PMSBase::execChargesRequests();
 $mail->sendEmail($mail->tomail,$mail->toname,'PMS - Cedolini di sconto inseriti',$mailbody,$mail->copies);
 
+echo "
+<script type=\"text/javascript\">
+    alert('Cedolini importati correttamente');
+    window.location.replace('../menu.php');
 
+</script>
 
+";
 
-
-
-//builder::backToPage("/menu.php");
+builder::backToPage("/menu.php");
