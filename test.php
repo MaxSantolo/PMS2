@@ -30,68 +30,42 @@ builder::Navbar('DataTable');
 
 <?php
 
-$db = new DB;
-$conn = $db->getProdConn('crm_punti');
+$db = new DB();
 
-/*$data = DB::arrayMaxPointsCategory($conn,227);
-var_dump($data);
-echo "<hr>";
-var_dump(DB::chargesToDo($data,1781));*/
+//echo phpinfo();
 
+/*echo "Sistemi: ";
+$conn1 = $db->getSistemiConn();
 
+print_r($conn1);
 
-
-
+echo "<br>";
 
 
-/*$mail = new Mail();
-$smail = $mail->sendEmail('max@swhub.io','MAx','Test',$body);*/
-
-$conn = $db->getSiteConn();
+echo "<HR>";
 
 
+echo "Dom2: ";
+$conn = $db->getDom2Conn();
+
+print_r($conn);
 
 
-//builder::backToPage("/menu.php");
+echo "<br>";
+
+
+
+echo "<HR>";*/
+
+//PMSBase::generateCredits();
+
+
 
 
 
 
 builder::Scripts();
-//test completo
-/*PMSBase::ReadInvoices();
-PMSBase::CheckCreateUsers();*/
-//PMSBase::UpdateUsers();
-//PMSBase::updateInvoicesStatus();
 
-
-
-
-//Mail::sendAccountsErrors('max@swhub.io','MS','Test');
-
-
-
-
-
-
-
-
-
-
-/*$test = PMSBase::GetCRMData('CLRPLA82C31H5010');
-var_dump($test);*/
-
-
-
-
-//echo $test = substr('SNTMSM76H30H501J', 9, 2);
-//
-
-/*echo PMSBase::updAnniversaryBirthdayNewYear();*/
-
-
-
-//PMSBase::calcMonthsContinuity($conn,'BRVCLD61S28H501B','RECCOMPLPERS',5,'2019-05-04',2);
 
 
 ?>

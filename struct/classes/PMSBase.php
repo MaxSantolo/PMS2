@@ -75,13 +75,18 @@ class PMSBase
                 JOIN AnagrGenIndirizzi ON (AnagrGenCliFor.IdAnagGen = AnagrGenIndirizzi.IdAnagGen)
               WHERE 
                 DocUniTestata.AnnoCompetenzaIva >= YEAR(getdate())
+                AND DocUniTestata.MeseCompetenzaLiquid >= MONTH(getdate()) 
                 AND DesEstesa NOT LIKE '%Storno%'
                 AND PartitaIva != '12599371007' -- esclude i rapporti Pick Center / Pick Center Roma
               ORDER BY DocUniRigheFattVen.IdDocumento DESC 
         ";
-        $invoices_array = sqlsrv_query($conn_sistemi, $query);
 
-        while ($invoice = sqlsrv_fetch_array($invoices_array, SQLSRV_FETCH_ASSOC)) {
+        $invoices_array = odbc_exec($conn_sistemi, $query);
+        $invoices = array();
+
+        while($a_invoice = odbc_fetch_array( $invoices_array )){ $invoices[] = $a_invoice; }
+        foreach($invoices as $invoice) {
+        //while ($invoice = sqlsrv_fetch_array($invoices_array, SQLSRV_FETCH_ASSOC)) {
 
             $pk = md5($invoice['IdDocumento'] . $invoice['DesEstesa']);
 
@@ -411,7 +416,7 @@ class PMSBase
         //genero l'array dei sql che generano punti
         $restypes = $conn->query("SELECT distinct(restype) FROM credits_schema");
         while ($restype = $restypes->fetch_assoc()) {
-            $sqls[$restype['restype']] = $db->sqlInvIdenCreds($db->getSQLParams($restype['restype']), true);
+            echo $sqls[$restype['restype']] = $db->sqlInvIdenCreds($db->getSQLParams($restype['restype']), true);
         }
         foreach ($sqls as $title => $value) {
 
@@ -420,6 +425,7 @@ class PMSBase
             while ($id = $invoiceids->fetch_assoc()) {
                 if (!self::creditExists($conn, $id['id'])) { //se l'accredito legato alla fattura già esiste lo lascia come lo trova
                     $now = PMSBase::Now();
+
                     $status = self::setCreditStatus($id['points'], $id['status'], $id['active']);
                     $points = self::promoPoints($conn,$id['points'],$now,$title); //controlla e calcola le promozioni
                     $conn->query("INSERT INTO credits (invoiceid, bookid, date, points, origin, status, active)
@@ -431,7 +437,7 @@ class PMSBase
                         PMSBase::calcMonthsContinuity($conn, $id['codfiscale'], $id['status'], $db->CToleranceDays, $now, $id['months']);
                         PMSBase::createAnniversaryBirthdayCredit($conn,$id['codfiscale'],$db->BPAnniversary,$id['bookid']);
                     }
-                }
+                } else echo $id['id']."<br>";
             }
         }
     }
@@ -699,7 +705,7 @@ class PMSBase
             $fromdate = strtotime($from['value']);
             $todate = strtotime($to['value']);
             if ($testdate >= $fromdate && $testdate <= $todate) {
-                $newpoints = floor(($points*(100+$bonusperc['value'])) + $bonuspnt['value']);
+                $newpoints = floor(($points*(100+$bonusperc['value']))/100 + $bonuspnt['value']);
                 return $newpoints;
             } else return $points;
         }

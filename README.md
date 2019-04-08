@@ -19,4 +19,11 @@
 <li>Inserito il file .gitignore
 <br><hr>
 22/03/2019 - Versione 2.0.17b:<br>
-<li>Aggiunti menu e finestra di conferma all'inserimento dei cedolini 
+<li>Aggiunti menu e finestra di conferma all'inserimento dei cedolini
+<br><hr> 
+08/05/2019 - Versione 2.0.50b:<br>
+<li>Corretto connettori ODBC
+<li>Corretto un errore nell'imputazione degli accrediti
+<li>Correntto un errore nel calcolo dei punti promozione
+<li>Migliorato il sistema di importazione delle fatture
+<br><hr>

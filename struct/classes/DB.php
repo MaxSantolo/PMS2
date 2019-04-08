@@ -81,9 +81,15 @@ class DB
         $username = $this->eSolverUserName;
         $password = $this->eSolverPassword;
         $db = $this->eSolverDB;
-        $connectionInfo = array( "Database"=>$db, "UID"=>$username, "PWD"=>$password);
-        $conn = sqlsrv_connect( $servername, $connectionInfo);
-        if ($conn) { return $conn; } else { die("Impossibile connettersi a: ".$db." - ". print_r( sqlsrv_errors(), true));}
+
+        $connection_string = "DRIVER={FreeTDSDom2};SERVER={$servername};DATABASE={$db}";
+        $conn = odbc_connect( $connection_string, $username, $password );
+
+
+
+        /*$connectionInfo = array( "Database"=>$db, "UID"=>$username, "PWD"=>$password);
+        $conn = sqlsrv_connect( $servername, $connectionInfo);*/
+        if ($conn) { return $conn; } else { die("Impossibile connettersi a: ".$db." - ". print_r( odbc_errormsg(), true));}
     }
 
     //genera connessione a Dom2
@@ -92,8 +98,15 @@ class DB
         $username = $this->Dom2UserName;
         $password = $this->Dom2Password;
         $db = $this->Dom2DB;
-        $connection_string = "DRIVER={SQL Server};SERVER={$servername};DATABASE={$db}";
-        $conn = odbc_connect( $connection_string, $username, $password );
+
+        /*$connectionInfo = array( "Database"=>$db, "UID"=>$username, "PWD"=>$password);
+        $conn = sqlsrv_connect( $servername, $connectionInfo);*/
+
+
+
+
+        $connection_string = "DRIVER={FreeTDSDom2};SERVER={$servername};DATABASE={$db}";
+        $conn = odbc_connect( 'MSSQLServer', $username, $password );
 
         if ($conn) { return $conn; } else { die("Impossibile connettersi a: ".$db." - ". print_r( odbc_errormsg(), true));}
     }
@@ -161,17 +174,20 @@ class DB
                                              $datecondition = "AND DataFatturaDA != DataFatturaA";
                                              $calcpoints = "*round(datediff(DataFatturaA,DataFatturaDA)/30,0)";
         }
+
         if ($grouped) {
+                        $maxdate = DB::getInvoicesMaxDate();
                         $grpfields =
                                 ",count(esolver_invoices.CodFiscale) as resources, round(datediff(DataFatturaA,DataFatturaDA)/30,0) as months, 
                                 ((count(esolver_invoices.CodFiscale)-1)*{$params['RisorseSuccessive']}+{$params['PrimaRisorsa']}){$calcpoints}  as points";
                         $grpcolumn = " GROUP BY esolver_invoices.CodFiscale";
                         $grpjoin = " LEFT JOIN users ON esolver_invoices.codfiscale = users.codfiscale LEFT JOIN esolver_invoices_importstatus ON esolver_invoices.id = esolver_invoices_importstatus.id";
+                        $grpwhere = " AND esolver_invoices_importstatus.date > '{$maxdate}'";
                       }  else { $grpfields = ''; $grpcolumn = ''; $grpjoin = '';}
         $sql = "SELECT * {$grpfields}
                 FROM esolver_invoices
                 {$grpjoin} 
-                WHERE ImportoValuta != 0 AND DesEstesa NOT LIKE '%cedolino%' {$datecondition} 
+                WHERE ImportoValuta != 0 AND DesEstesa NOT LIKE '%cedolino%' {$datecondition} {$grpwhere}
                 {$params['Condizioni']}
                 {$grpcolumn}";
         return $sql;
@@ -281,7 +297,6 @@ class DB
 
 
     }
-
 
     //genera l'array dei punti spendibili per categoria per cliente
     public static function arrayMaxPointsCategory($conn,$bookid) {
@@ -414,6 +429,16 @@ class DB
             $aliquota['value'] = $row['aliq_value'];
         }
         return $aliquota;
+    }
+
+    //recupera il valore più alto della data delle fatture importate per creare gli accrediti
+    public static function getInvoicesMaxDate() {
+        $db = new DB();
+        $conn = $db->getProdConn('crm_punti');
+        $sql = "SELECT max(date) as maxdate from esolver_invoices_importstatus";
+        $date = $conn->query($sql)->fetch_assoc();
+        return $maxdate = $date['maxdate'];
+
     }
 
 }
