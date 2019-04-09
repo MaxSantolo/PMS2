@@ -82,16 +82,24 @@ class PMSBase
         ";
 
         $invoices_array = odbc_exec($conn_sistemi, $query);
+        $err = odbc_error($conn_sistemi);
         $invoices = array();
-
+        $logcontent = "";
+        $logcounter = 0;
         while($a_invoice = odbc_fetch_array( $invoices_array )){ $invoices[] = $a_invoice; }
+
+        //print_r($invoices);
+        
+
+
+
         foreach($invoices as $invoice) {
         //while ($invoice = sqlsrv_fetch_array($invoices_array, SQLSRV_FETCH_ASSOC)) {
 
             $pk = md5($invoice['IdDocumento'] . $invoice['DesEstesa']);
 
             //echo $pk  . ' | '. var_dump(self::CheckInvoiceStatus($conn_amanda,$pk));
-            echo '<br>';
+            //echo '<br>';
 
             if (!self::CheckInvoiceStatus($conn_amanda, $pk)) {
                 $invoice_date_from = self::DateItalianToSQL($invoice['InvoiceDateFrom'], 'Y-m-d');
@@ -102,7 +110,8 @@ class PMSBase
                 $socname2 = str_replace("'", "\'", $invoice['RagSoc2']); //strip apostrofi
 
                 //import invoice
-                $conn_amanda->query("
+
+                $importsql = "
                 INSERT INTO esolver_invoices 
                   (id,IdDocumento,DataFatturaDA,DataFatturaA,ImportoValuta,AnnoCompetenzaIVA,DesEstesa,IdAnagGen,
                   PartitaIVA,CodFiscale,RagSoc1,RagSoc2,IndirEmail)
@@ -120,10 +129,32 @@ class PMSBase
                     '{$socname1}',
                     '{$socname2}',
                     '{$invoice['IndirEmail']}'
-                    )");
+                    )";
+
+                $conn_amanda->query($importsql);
                 self::SetInvoice($conn_amanda, $pk);
+
+                $logcontent .= $importsql . PHP_EOL;
+                ++$logcounter;
             }
         }
+
+        //.log
+        $plog = new PickLog();
+        $logreturn = $logcontent . PHP_EOL . "Righe importate: " . $logcounter;
+        $params = array(
+            'app' => 'PMS',
+            'action' => 'ESOLVER_FATTURE_DL',
+            'content' => $logreturn,
+            'user' => $_SESSION['user_name'],
+            'description' => 'Fatture riconosciute e scaricate da eSolver.',
+            'origin' => 'eSolver.DocUniRigheFattVen, eSolver.DocUniTestata',
+            'destination' => 'DBServer.crm_punti.esolver_invoices',
+        );
+        $plog->sendLog($params);
+
+        return $logreturn;
+
     }
 
     public static function CheckInvoiceStatus($conn, $pk)
@@ -459,7 +490,7 @@ class PMSBase
 
     //Check degli accrediti e invio al sito - Zero = accrediti nulli, come coworking, Credited = accrediti assegnati e mandata email
     //sentlost = accrediti a cui è stata inviata mail con esito
-    public function addCreditsToSite() {
+    public static function addCreditsToSite() {
         $db = new DB();
         $conn = $db->getProdConn('crm_punti');
         //accrediti da fatture

@@ -10,8 +10,9 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/Mail.php';
 builder::startSession();
 builder::Header('Secondary Daily Cronjob','geobg.png');
 
-
+PMSBase::uploadCharges();
 PMSBase::addCreditsToSite();
+PMSBase::downloadChargesRequests();
 
 $mail = new Mail();
 $mail->sendAccountsErrors();

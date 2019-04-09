@@ -26,66 +26,11 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="crm_punti: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="crm_punti: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="crm_punti: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="credits_schema: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="crm_punti: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="esolver_invoices_importstatus: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Sitegroud" type="feb32156:DbDataSourceImpl" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="invoices.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/invoices/invoices.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="215" column="62" selection-start-line="215" selection-start-column="62" selection-end-line="215" selection-end-column="62" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="invoices.ajax.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/invoices/invoices.ajax.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -95,36 +40,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="credits.ajax.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/credits/credits.ajax.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="23" column="22" selection-start-line="1" selection-end-line="3" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/struct/classes/Log.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PMSBase.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PMSBase.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/struct/classes/PMSBase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+            <state relative-caret-position="-790">
+              <caret line="91" column="8" lean-forward="true" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
               <folding>
                 <element signature="e#6#308#0#PHP" expanded="true" />
                 <element signature="n#DateToItalian#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#DateItalianToSQL#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#isCRM#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#RandomString#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#ReadInvoices#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#CheckInvoiceStatus#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#SetInvoice#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#GetCRMData#0;n#PMSBase#0;n#!!top" />
@@ -156,7 +82,6 @@
                 <element signature="n#readCharges#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#chargeExists#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#uploadCharges#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#downloadChargesRequests#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#execChargesRequests#0;n#PMSBase#0;n#!!top" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
@@ -180,11 +105,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="receipts.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/receipts/receipts.php">
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1098">
-              <caret line="67" column="181" selection-start-line="67" selection-start-column="181" selection-end-line="67" selection-end-column="181" />
+            <state relative-caret-position="756">
+              <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monthly.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crons/monthly.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="yearly.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crons/yearly.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -198,61 +150,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="504">
-                <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="primary_daily.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crons/primary_daily.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DB.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/struct/classes/DB.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="171" column="67" selection-start-line="171" selection-start-column="67" selection-end-line="171" selection-end-column="67" />
-              <folding>
-                <element signature="n#__construct#0;n#DB#0;n#!!top" />
-                <element signature="n#getPBXConn#0;n#DB#0;n#!!top" />
-                <element signature="n#getProdConn#0;n#DB#0;n#!!top" />
-                <element signature="n#getSiteConn#0;n#DB#0;n#!!top" />
-                <element signature="n#getSistemiConn#0;n#DB#0;n#!!top" />
-                <element signature="n#getDom2Conn#0;n#DB#0;n#!!top" />
-                <element signature="n#dropConn#0;n#DB#0;n#!!top" />
-                <element signature="n#checkPassword#0;n#DB#0;n#!!top" />
-                <element signature="n#dateRange#0;n#DB#0;n#!!top" />
-                <element signature="n#showOpt#0;n#DB#0;n#!!top" />
-                <element signature="n#dateRangeRecurring#0;n#DB#0;n#!!top" />
-                <element signature="n#sqlInvIdenCreds#0;n#DB#0;n#!!top" />
-                <element signature="n#getSQLParams#0;n#DB#0;n#!!top" />
-                <element signature="n#getUserData#0;n#DB#0;n#!!top" />
-                <element signature="n#getSchemaParam#0;n#DB#0;n#!!top" />
-                <element signature="n#transcode#0;n#DB#0;n#!!top" />
-                <element signature="n#decode#0;n#DB#0;n#!!top" />
-                <element signature="n#sqlTable#0;n#DB#0;n#!!top" />
-                <element signature="n#pointsBalance#0;n#DB#0;n#!!top" />
-                <element signature="n#saveGeneralOptions#0;n#DB#0;n#!!top" />
-                <element signature="n#savePromoOptions#0;n#DB#0;n#!!top" />
-                <element signature="n#arrayMaxPointsCategory#0;n#DB#0;n#!!top" />
-                <element signature="n#chargesToDo#0;n#DB#0;n#!!top" />
-                <element signature="n#dom2Ids#0;n#DB#0;n#!!top" />
-                <element signature="n#cedolinoId#0;n#DB#0;n#!!top" />
-                <element signature="n#dom2IVAData#0;n#DB#0;n#!!top" />
-                <element signature="n#getInvoicesMaxDate#0;n#DB#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="PickLog.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/struct/classes/PickLog.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="Mail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/struct/classes/Mail.php">
+      <file leaf-file-name="secondary_daily.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crons/secondary_daily.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+            <state>
+              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -268,12 +184,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nomail</find>
-      <find>color_cube</find>
-      <find>color_cub</find>
-      <find>accounts</find>
-      <find>Punti</find>
-      <find>[Punti]</find>
       <find>todo</find>
       <find>$crm_data['email']</find>
       <find>adduser</find>
@@ -298,12 +208,19 @@
       <find>transci</find>
       <find>transco</find>
       <find>addpoints</find>
+      <find>acs</find>
+      <find>addcredi</find>
+      <find>downloaded</find>
+      <find>DOWNLOAD_CHARGES</find>
+      <find>WPSD_WC_POINT</find>
+      <find>DOWNLOAD</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
     </replaceStrings>
     <dirStrings>
       <dir>U:\points</dir>
+      <dir>W:\points</dir>
     </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -315,7 +232,6 @@
         <option value="$PROJECT_DIR$/options/log.php" />
         <option value="$PROJECT_DIR$/db/cronjobs.txt" />
         <option value="$PROJECT_DIR$/crons/yearly.php" />
-        <option value="$PROJECT_DIR$/crons/secondary_daily.php" />
         <option value="$PROJECT_DIR$/users.php" />
         <option value="$PROJECT_DIR$/logs/general.log" />
         <option value="$PROJECT_DIR$/options/options.ajax.php" />
@@ -333,7 +249,6 @@
         <option value="$PROJECT_DIR$/credits/credits.ajax.php" />
         <option value="$PROJECT_DIR$/invoices/invoices.ajax.php" />
         <option value="$PROJECT_DIR$/options/conditions.php" />
-        <option value="$PROJECT_DIR$/crons/primary_daily.php" />
         <option value="$PROJECT_DIR$/crons/list.txt" />
         <option value="$PROJECT_DIR$/receipts/receipts.php" />
         <option value="$PROJECT_DIR$/options/edit_ini_file.php" />
@@ -341,12 +256,14 @@
         <option value="$PROJECT_DIR$/crons/monthly.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/struct/classes/Mail.php" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6d4d4e3b-4f81-4b64-a253-5e22b7773180/console.sql" />
         <option value="$PROJECT_DIR$/points.ini" />
-        <option value="$PROJECT_DIR$/struct/classes/PMSBase.php" />
         <option value="$PROJECT_DIR$/struct/classes/DB.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/crons/secondary_daily.php" />
+        <option value="$PROJECT_DIR$/crons/primary_daily.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/struct/classes/PMSBase.php" />
       </list>
     </option>
   </component>
@@ -437,22 +354,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="SQL Server (Microsoft)&#10;MySQL" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="T:/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="U:\points\users" />
+      <recent name="U:\points\crons" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="W:\points\struct\classes" />
       <recent name="U:\points\crons" />
       <recent name="U:\points\receipts" />
       <recent name="U:\points\debits" />
       <recent name="U:\points\options" />
-      <recent name="U:\points" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="U:\points\users" />
-      <recent name="U:\points\crons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -548,11 +465,13 @@
       <workItem from="1554447543904" duration="15889000" />
       <workItem from="1554475896098" duration="750000" />
       <workItem from="1554705291482" duration="2772000" />
+      <workItem from="1554722161246" duration="151000" />
+      <workItem from="1554727354754" duration="5256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="496502000" />
+    <option name="totallyTimeSpent" value="501909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -564,10 +483,10 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Database Console" order="11" visible="true" weight="0.16013072" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16875" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17760417" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -577,7 +496,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
+      <window_info anchor="bottom" id="Database Console" order="11" visible="true" weight="0.16013072" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,7 +516,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://6d4d4e3b-4f81-4b64-a253-5e22b7773180/schema/crm_punti/view/v_credits_list" />
     <entry file="file://$PROJECT_DIR$/options/general.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -617,13 +535,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/session.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/options/options.ajax.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -698,24 +609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crons/yearly.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crons/list.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crons/primary_daily.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -772,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crons/monthly.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="106" selection-start-line="14" selection-start-column="106" selection-end-line="14" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -790,20 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
           <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crons/secondary_daily.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/struct/classes/Mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -821,17 +697,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="59" column="2" selection-start-line="59" selection-start-column="2" selection-end-line="59" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/struct/classes/Log.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
-          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -849,20 +718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/points.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/invoices/invoices.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
+        <state relative-caret-position="3798">
           <caret line="215" column="62" selection-start-line="215" selection-start-column="62" selection-end-line="215" selection-end-column="62" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -873,68 +732,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/struct/classes/PMSBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
-          <folding>
-            <element signature="e#6#308#0#PHP" expanded="true" />
-            <element signature="n#DateToItalian#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#DateItalianToSQL#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#isCRM#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#RandomString#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#ReadInvoices#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#CheckInvoiceStatus#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#SetInvoice#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#GetCRMData#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#updateInvoicesStatus#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#CheckUser#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#CheckCreateUsers#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#UpdateUsers#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#createOnlineAccounts#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#Status#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#Exists#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#HasLogged#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#AddUser#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#GetBookData#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#AddPoints#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#AddUserMeta#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#generateCredits#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#setCreditStatus#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#creditExists#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#addCreditsToSite#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#forceCredit#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#calcMonthsContinuity#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#generateContinuityCredits#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#createContinuities#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#createAnniversaryBirthdayCredit#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#updAnniversaryBirthdayNewYear#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#codfiscMonth#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#promoPoints#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#calcPoints#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#readCharges#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#chargeExists#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#uploadCharges#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#downloadChargesRequests#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#execChargesRequests#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="468">
+            <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -974,13 +778,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="504">
-            <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/struct/classes/Mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/points.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crons/monthly.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crons/yearly.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crons/secondary_daily.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/struct/classes/PickLog.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crons/primary_daily.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/struct/classes/PMSBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-790">
+          <caret line="91" column="8" lean-forward="true" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
+          <folding>
+            <element signature="e#6#308#0#PHP" expanded="true" />
+            <element signature="n#DateToItalian#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#DateItalianToSQL#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#isCRM#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#RandomString#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#CheckInvoiceStatus#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#SetInvoice#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#GetCRMData#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#updateInvoicesStatus#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#CheckUser#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#CheckCreateUsers#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#UpdateUsers#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#createOnlineAccounts#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#Status#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#Exists#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#HasLogged#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#AddUser#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#GetBookData#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#AddPoints#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#AddUserMeta#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#generateCredits#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#setCreditStatus#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#creditExists#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#addCreditsToSite#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#forceCredit#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#calcMonthsContinuity#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#generateContinuityCredits#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#createContinuities#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#createAnniversaryBirthdayCredit#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#updAnniversaryBirthdayNewYear#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#codfiscMonth#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#promoPoints#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#calcPoints#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#readCharges#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#chargeExists#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#uploadCharges#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#execChargesRequests#0;n#PMSBase#0;n#!!top" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

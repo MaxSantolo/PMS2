@@ -24,6 +24,6 @@
 08/05/2019 - Versione 2.0.50b:<br>
 <li>Corretto connettori ODBC
 <li>Corretto un errore nell'imputazione degli accrediti
-<li>Correntto un errore nel calcolo dei punti promozione
+<li>Corretto un errore nel calcolo dei punti promozione
 <li>Migliorato il sistema di importazione delle fatture
 <br><hr>
