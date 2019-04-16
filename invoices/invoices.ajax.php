@@ -12,6 +12,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/builder.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/struct/classes/PMSBase.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/DB.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/Log.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/PickLog.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/tech/class/PHPMailerAutoload.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/Mail.php';
 
@@ -23,7 +24,8 @@ if ($_POST['command'] == 'updateinvoices') {
 
     PMSBase::ReadInvoices();
     PMSBase::CheckCreateUsers();
+    PMSBase::UpdateUsers();
     PMSBase::updateInvoicesStatus();
-    Log::wLog('Fatture aggiornate manualmente','Importazione fatture');
+    //Log::wLog('Fatture aggiornate manualmente','Importazione fatture');
 
 }

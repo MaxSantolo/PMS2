@@ -62,7 +62,10 @@ class PMSBase
         $db = new DB;
         $conn_sistemi = $db->getSistemiConn();
         $conn_amanda = $db->getProdConn('crm_punti');
-        $query = "
+        $errmsg = "";
+        $msg = "";
+
+        echo $query = "
               SELECT DocUniRigheFattVen.IdDocumento, 
                      cast(DocUniRigheFattVen.DatiIndDataPeriodoDA as varchar) as InvoiceDateFrom,
                      cast(DocUniRigheFattVen.DatiIndDataPeriodoA as varchar) as InvoiceDateTo,
@@ -82,7 +85,12 @@ class PMSBase
         ";
 
         $invoices_array = odbc_exec($conn_sistemi, $query);
-        $err = odbc_error($conn_sistemi);
+
+        ( odbc_error($conn_sistemi) ) ?
+        $errmsg = "Impossibile eseguire la query di scarimento delle fatture da esolver" . PHP_EOL . $query . PHP_EOL . "Errore ODBC: " . odbc_errormsg($conn_sistemi) :
+        $msg = "Lettura fatture avvenuta correttamente.";
+
+
         $invoices = array();
         $logcontent = "";
         $logcounter = 0;
@@ -111,7 +119,7 @@ class PMSBase
 
                 //import invoice
 
-                $importsql = "
+                echo $importsql = "
                 INSERT INTO esolver_invoices 
                   (id,IdDocumento,DataFatturaDA,DataFatturaA,ImportoValuta,AnnoCompetenzaIVA,DesEstesa,IdAnagGen,
                   PartitaIVA,CodFiscale,RagSoc1,RagSoc2,IndirEmail)
@@ -134,24 +142,47 @@ class PMSBase
                 $conn_amanda->query($importsql);
                 self::SetInvoice($conn_amanda, $pk);
 
-                $logcontent .= $importsql . PHP_EOL;
-                ++$logcounter;
+                if ($conn_amanda->error) {
+
+                    $errmsg .= PHP_EOL . "La query: $importsql ha generato errore: $conn_amanda->error";
+
+                } else {
+                    // $logcontent .= $importsql . PHP_EOL;
+                    ++$logcounter;
+                }
             }
         }
 
         //.log
         $plog = new PickLog();
-        $logreturn = $logcontent . PHP_EOL . "Righe importate: " . $logcounter;
+        $mail = new Mail();
+
+        if ($errmsg == "") {
+
+            Log::wLog($msg);
+            $logreturn = "Fatture importate correttamente da eSolver. Righe importate: " . $logcounter;
+
+        } else
+
+        {
+
+            Log::wLog("Errori importazione fatture da eSolver, controllare logs.pickcenter.com.","Errore");
+            $smail = $mail->sendErrorEmail($errmsg);
+            $msg = $errmsg;
+
+        }
+
         $params = array(
             'app' => 'PMS',
             'action' => 'ESOLVER_FATTURE_DL',
             'content' => $logreturn,
             'user' => $_SESSION['user_name'],
-            'description' => 'Fatture riconosciute e scaricate da eSolver.',
+            'description' => $msg,
             'origin' => 'eSolver.DocUniRigheFattVen, eSolver.DocUniTestata',
             'destination' => 'DBServer.crm_punti.esolver_invoices',
         );
         $plog->sendLog($params);
+
 
         return $logreturn;
 
@@ -246,7 +277,7 @@ class PMSBase
     //controlla se Account esiste già
     public static function CheckUser($conn, $codfis)
     {
-        $search = $conn->query("SELECT CodFisc FROM users WHERE CodFisc = '{$codfis}'");
+        $search = $conn->query("SELECT codfiscale FROM users WHERE codfiscale = '{$codfis}'");
         if ($search->num_rows == 0) return false; else return true;
     }
 
@@ -254,21 +285,36 @@ class PMSBase
     public static function CheckCreateUsers()
     {
         $db = new DB();
+        $plog = new PickLog();
+        $mail = new Mail();
         $conn = $db->getProdConn('crm_punti');
-        $datas = $conn->query("SELECT distinct(CodFiscale) FROM esolver_invoices WHERE CodFiscale != ''");
+        $logMsg = "";
+        $logErrMsg = "";
+
+        $sqlDistinctCF = "SELECT distinct(CodFiscale) FROM esolver_invoices WHERE CodFiscale != ''";
+        $datas = $conn->query($sqlDistinctCF);
+
+        //log messages
+        ($conn->error) ? $logErrMsg = "Impossibile eseguire la query: " . $sqlDistinctCF . "Errore: " . $conn->error : $logMsg = "Utenti letti correttamente";
+
         //crea account riconoscendoli dalle fatture
+
         while ($data = $datas->fetch_assoc()) {
+
             if (!self::CheckUser($conn, $data['CodFiscale'])) {
+
+                //log skip error
                 $accdatas = $conn->query("SELECT CodFiscale,PartitaIva,RagSoc1,RagSoc2 FROM esolver_invoices WHERE CodFiscale = '{$data['CodFiscale']}'")->fetch_assoc();
+
+
                 $crm_data = self::GetCRMData($data['CodFiscale']);
                 $bookdata = self::GetBookData($data['CodFiscale'], $accdatas['PartitaIva']);
-                $company = $accdatas['RagSoc1'] . ' ' . $accdatas['RagSoc2'];
+                $company = $conn->real_escape_string($accdatas['RagSoc1'] . ' ' . $accdatas['RagSoc2']);
                 $crmid = $crm_data['id'];
                 $status = self::Status($bookdata['id'], $bookdata['email'], $crmid, $bookdata['active'], $crm_data['crmemail']);
-/*                if (strtolower($bookdata['email']) != strtolower($crm_data['crmemail'])) {
-                    Log::wLog("La mail di iscrizione al sito e quella sul CRM per **{$company}** non corrispondono.");
-                };*/
-                $conn->query("INSERT INTO users (codfiscale,partitaiva,company,crmid,bookingmail,bookid,active,status,crmtype,crmemail) VALUES
+
+                //log control
+                $sqlInsertUser = "INSERT INTO users (codfiscale,partitaiva,company,crmid,bookingmail,bookid,active,status,crmtype,crmemail) VALUES
                 ('{$accdatas['CodFiscale']}',
                 '{$accdatas['PartitaIva']}',
                 '{$company}',
@@ -280,9 +326,30 @@ class PMSBase
                 '{$crm_data['type']}',
                 '{$crm_data['crmemail']}'
                 )
-                ");
+                ";
+                $conn->query($sqlInsertUser);
+                ($conn->error) ? $logErrMsg .= "Impossibile eseguire la query:  " . $sqlInsertUser . ". Errore: " . $conn->error : $logMsg = "Aggiornati correttamente " . $datas->num_rows . " utenti";
             }
         }
+
+        if ($logErrMsg == "") $content = $logMsg;
+        else {
+            $content = $logErrMsg;
+            $mail->sendErrorEmail($logErrMsg);
+        }
+
+        $params = array(
+            'app' => 'PMS',
+            'action' => 'CREA_UTENTI_FATTURE',
+            'content' => $content,
+            'user' => $_SESSION['user_name'],
+            'description' => "Controllo e creazione degli utenti da fatture",
+            'origin' => 'eSolver.DocUniRigheFattVen, eSolver.DocUniTestata',
+            'destination' => 'DBServer.crm_punti.esolver_invoices',
+        );
+        $plog->sendLog($params);
+        Log::wLog($content);
+
     }
 
     //aggiorna gli account da sito e da crm

@@ -253,4 +253,21 @@ class Mail extends PHPMailer
         return $mail;
     }
 
+    public function sendErrorEmail($body,$subject="Errore PMS") {
+
+        $this->From = $this->frommail;
+        $this->FromName = $this->fromname;
+        $this->AddAddress("max@swhub.io", "MS");
+/*        $this->AddCC("cea@pickcenter.com", "LC");
+        $this->AddCC("bucci@pickcenter.com", "MB");
+        $this->AddCC("roberta@pickcenter.com", "RG");
+        $this->AddReplyTo("info@pickcenter.com", "Informazioni");*/
+        $this->Subject = $subject;
+        $this->Body    = $body;
+        $this->IsHTML(true);
+
+        $this->AltBody = 'Il messaggio è in formato HTML si prega di attivare questa modalità';
+        return $this->send();
+
+    }
 }

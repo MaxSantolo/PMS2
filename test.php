@@ -31,34 +31,35 @@ builder::Navbar('DataTable');
 
 <?php
 
-$db = new DB();
+/*$db = new DB;
+$conn_sistemi = $db->getSistemiConn();
+$conn_amanda = $db->getProdConn('crm_punti');
+$query = "
+              SELECT DocUniRigheFattVen.IdDocumento, 
+                     cast(DocUniRigheFattVen.DatiIndDataPeriodoDA as varchar) as InvoiceDateFrom,
+                     cast(DocUniRigheFattVen.DatiIndDataPeriodoA as varchar) as InvoiceDateTo,
+                     ImportoValuta, DesEstesa, DocUniTestata.AnnoCompetenzaIva, 
+                     DocUniTestata.IdAnagGen, AnagrGenCliFor.PartitaIva, AnagrGenCliFor.CodFiscale, AnagrGenIndirizzi.RagSoc1, AnagrGenIndirizzi.RagSoc2, AnagrGenIndirizzi.IndirEmail
+              FROM 
+                DocUniRigheFattVen
+                JOIN DocUniTestata ON (DocUniTestata.IdDocumento = DocUniRigheFattVen.IdDocumento)
+                JOIN AnagrGenCliFor ON (DocUniTestata.IdAnagGen = AnagrGenCliFor.IdAnagGen)
+                JOIN AnagrGenIndirizzi ON (AnagrGenCliFor.IdAnagGen = AnagrGenIndirizzi.IdAnagGen)
+              WHERE 
+                DocUniTestata.AnnoCompetenzaIva >= YEAR(getdate())
+                AND DocUniTestata.MeseCompetenzaLiquid >= MONTH(getdate()) 
+                AND DesEstesa NOT LIKE '%Storno%'
+                AND PartitaIva != '12599371007' -- esclude i rapporti Pick Center / Pick Center Roma
+              ORDER BY DocUniRigheFattVen.IdDocumento DESC 
+        ";
 
-//echo phpinfo();
+$invoices_array = odbc_exec($conn_sistemi, $query);
 
-/*echo "Sistemi: ";
-$conn1 = $db->getSistemiConn();
+( odbc_errormsg($conn_sistemi) ) ? $msg = "errore " . odbc_errormsg($conn_sistemi) : $msg = "OK!";
+echo $msg;*/
 
-print_r($conn1);
+PMSBase::CheckCreateUsers();
 
-echo "<br>";
-
-
-echo "<HR>";
-
-
-echo "Dom2: ";
-$conn = $db->getDom2Conn();
-
-print_r($conn);
-
-
-echo "<br>";
-
-
-
-echo "<HR>";*/
-
-echo PMSBase::ReadInvoices();
 
 
 
