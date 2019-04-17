@@ -238,37 +238,79 @@ class PMSBase
     {
         $db = new DB();
         $conn = $db->getProdConn('crm_punti');
-        /*//riporto tutte le fatture a "imported" come in fase iniziale
-        $conn->query("UPDATE esolver_invoices_importstatus SET status = 'imported'");*/
-        //genero l'array dei sql che generano punti
 
+        //genero l'array dei sql che generano punti
         $restypes = $conn->query("SELECT distinct(restype) FROM credits_schema");
+
+        if ($conn->error) die("Impossibile accedere alla tabella delle opzioni. Errore: " . $conn->error);
+        $connErr = "";
+        $numNormalInvoices = 0;
+        $numZeroInvoices = 0;
+        $numReceipts = 0;
+        $numManualInvoices = 0;
+
         while ($restype = $restypes->fetch_assoc()) {
             $sqls[$restype['restype']] = $db->sqlInvIdenCreds($db->getSQLParams($restype['restype']), false);
         }
+
         foreach ($sqls as $title => $value) {
             $invoiceids = $conn->query($value);
+
             while ($id = $invoiceids->fetch_assoc()) {
-                $conn->query("UPDATE esolver_invoices_importstatus SET status='{$title}' WHERE id = '{$id['id']}'");
+
+                $sqlUpdateInvoicesStatus = "UPDATE esolver_invoices_importstatus SET status='{$title}' WHERE id = '{$id['id']}'";
+                $conn->query($sqlUpdateInvoicesStatus);
+                if ($conn->error) $connErr .= $sqlUpdateInvoicesStatus . PHP_EOL . $conn->error . PHP_EOL;
+
             }
+
+            $numNormalInvoices += $invoiceids->num_rows;
         }
 
         //riconosce le fatture a zero e le segna come tale (status = zero)
+
         $zeroinvoices = $conn->query("SELECT id FROM esolver_invoices WHERE ImportoValuta = 0");
+
         while ($zeroinv = $zeroinvoices->fetch_assoc()) {
-            $conn->query("UPDATE esolver_invoices_importstatus SET status='ZERO' WHERE id = '{$zeroinv['id']}'");
+
+            $sqlUpdateZeroInvoice = "UPDATE esolver_invoices_importstatus SET status='ZERO' WHERE id = '{$zeroinv['id']}'";
+            $conn->query($sqlUpdateZeroInvoice);
+            if ($conn->error) $connErr .= $sqlUpdateZeroInvoice . PHP_EOL . $conn->error . PHP_EOL;
         }
+        $numZeroInvoices += $zeroinvoices->num_rows;
+
+
         //riconosce le fatture manuali non rettificate e le segna come tale (status = manual)
         $manualinvoices = $conn->query("SELECT esolver_invoices.id FROM esolver_invoices
                                               LEFT JOIN esolver_invoices_importstatus ON esolver_invoices.id = esolver_invoices_importstatus.id
                                               WHERE (DesEstesa LIKE '%Uffici %' OR DesEstesa LIKE '%Sedi%' OR DesEstesa LIKE '%Recapiti%') AND esolver_invoices_importstatus.status != 'adjusted'");
         while ($maninv = $manualinvoices->fetch_assoc()) {
-            $conn->query("UPDATE esolver_invoices_importstatus SET status='MANUAL' WHERE id = '{$maninv['id']}'");
+
+            $sqlUpdateManualInvoice = "UPDATE esolver_invoices_importstatus SET status='MANUAL' WHERE id = '{$maninv['id']}'";
+            $conn->query($sqlUpdateManualInvoice);
+            if ($conn->error) $connErr .= $sqlUpdateManualInvoice . PHP_EOL . $conn->error . PHP_EOL;
+
         }
+        $numManualInvoices += $manualinvoices->num_rows;
+
         //riconosce le fatture per cedolino e le segna come tali (status = receipt)
         $receipts = $conn->query("SELECT id FROM esolver_invoices WHERE DesEstesa LIKE '%cedolino%'");
+
         while ($rec = $receipts->fetch_assoc()) {
-            $conn->query("UPDATE esolver_invoices_importstatus SET status='RECEIPT' WHERE id = '{$rec['id']}'");
+
+            $sqlUpdateReceipt = "UPDATE esolver_invoices_importstatus SET status='RECEIPT' WHERE id = '{$rec['id']}'";
+            $conn->query($sqlUpdateReceipt);
+            if ($conn->error) $connErr .= $sqlUpdateReceipt . PHP_EOL . $conn->error . PHP_EOL;
+
+        }
+        $numReceipts += $receipts->num_rows;
+
+        //verifico errori per exception e ritorno numero delle fatture riconosciute
+        if ($connErr != "") throw new Exception("Impossibile riconoscere le fatture." . PHP_EOL ."Errori: " . $connErr);
+        else {
+            $totInvoices = $numReceipts + $numManualInvoices + $numZeroInvoices + $numNormalInvoices;
+            $returnmsg = "Riconosciute {$totInvoices} righe di fattura di cui: {$numNormalInvoices} hanno generato punti, {$numZeroInvoices} con valore 0, {$numManualInvoices} con valore da rettificare e {$numReceipts} cedolini.";
+            return $returnmsg;
         }
     }
 
@@ -357,7 +399,10 @@ class PMSBase
     {
         $db = new DB();
         $conn = $db->getProdConn('crm_punti');
-        $datas = $conn->query("SELECT * FROM users");
+        $datas = $conn->query("SELECT * FROM users where active = 1");
+
+        if ($conn->error) die("Impossibile accedere alla tabella utenti: " . $conn->error);
+        $connErr = "";
         while ($data = $datas->fetch_assoc()) {
             $cf = $data['codfiscale'];
             $piva = $data['partitaiva'];
@@ -366,7 +411,7 @@ class PMSBase
                 $bookdata = self::GetBookData($cf, $piva);
                 $crmid = $crm_data['id'];
                 $status = self::Status($bookdata['id'], $bookdata['email'], $crmid, $bookdata['active'], $crm_data['crmemail']);
-                $conn->query("UPDATE users SET crmid = '{$crmid}',
+                $sqlUpdateUsers = "UPDATE users SET crmid = '{$crmid}',
                                                        crmtype = '{$crm_data['type']}', 
                                                        bookid = '{$bookdata['id']}', 
                                                        bookingmail = '{$bookdata['email']}', 
@@ -374,10 +419,15 @@ class PMSBase
                                                        status = '{$status}',
                                                        crmemail = '{$crm_data['crmemail']}'
                                    WHERE codfiscale = '{$cf}'
-                        ");
-;
+                        ";
+                $conn->query($sqlUpdateUsers);
+
+                if ($conn->error) $connErr .= $sqlUpdateUsers . PHP_EOL . $conn->error . PHP_EOL;
+
             }
         }
+        if ($connErr != "" ) throw new Exception("Impossibile aggiornare utenti: " . PHP_EOL . $connErr);
+        return $datas->num_rows;
     }
 
     //crea gli utenti online
@@ -385,11 +435,18 @@ class PMSBase
     {
         $db = new DB();
         $conn = $db->getSiteConn();
-        $users = $conn->query("SELECT * FROM users WHERE status = 'tosign'");
+        $errMsg = "";
+
+        $sqlSelectUsersToSign = "SELECT * FROM users WHERE status = 'tosign'";
+        $users = $conn->query($sqlSelectUsersToSign);
+        if ( $conn->error ) $errMsg = "Impossibile accedere alla tabella crm_punti.users. Errore: " . $conn->error;
+
         while ($user = $users->fetch_assoc()) {
             ($user['bookingmail'] != '') ? $mail = $user['bookingmail'] : $mail = $user['crmemail'];
             self::AddUser($conn, $user['company'], $mail, $user['codfiscale'], $users['partitaiva'], $db->BPFirstLogin);
+
             $conn->query("UPDATE users SET status = 'signed' WHERE codfiscale = '{$user['codfiscale']}'");
+            if ( $conn->error ) $errMsg .= "Impossibile accedere alla tabella crm_punti.users. Errore: " . $conn->error;
         }
     }
 
@@ -435,12 +492,21 @@ class PMSBase
     //inserisce un utente nel sito - primo accesso
     public function AddUser($conn, $name, $email, $cf, $piva, $bonusfirstlogin)
     {
+
+        $opText = "";
+        $opNum = 0;
+
+
         if (!self::Exists($conn, $email)) {
             $public_password = self::RandomString(8);
             $password = md5($public_password);
             $date = self::Now();
+
             $conn->query("INSERT INTO wpsd_users (user_login,user_pass,user_nicename,user_email,user_registered,display_name)
                       VALUES ('{$email}','{$password}','{$name}','{$email}','{$date}','{$name}')");
+
+            ($conn->error) ? $opText .= "Impossibile aggiungere l'utente {$email} al sito. Errore: " . $conn->error : ++$opNum;
+
             //prendo l'id appena creato e mi salvo codice fiscale e partita iva
             $lastcreated = $conn->query("SELECT id FROM wpsd_users WHERE user_login = '{$email}'")->fetch_assoc();
             $id = $lastcreated['id'];
@@ -857,14 +923,21 @@ class PMSBase
                         [dbo].[loc_cedolini].cedo_imponi > 0 AND		
                         [dbo].[loc_cedolini].rise_codice IN('DAY','FATTORINO','FAX ARRIVO','FAX PART','NOLEGGI','PRENOTAZ','SEGRETERIA','TELEFONICO','ASS TECNIC')";
         $results = odbc_exec($connDom2,$sql);
+
+        if ( odbc_error($connDom2) ) die("Impossibile accedere al database di Dom2: " . odbc_errormsg($connDom2));
+
         $rows = array();
+        $numCharges = 0;
+        $errMsg = "";
 
         while($myRow = odbc_fetch_array( $results )){ $rows[] = $myRow; }
         foreach($rows as $row) {
             if(!self::chargeExists($conn,$row['chargenum'])) {
                 $datestart = builder::cDateCreate($row['chargedatestart']);
                 $dateend = builder::cDateCreate($row['chargedateend']);
-                $conn->query("
+                $description = $conn->real_escape_string($row['chargedescription']);
+
+                $sqlInsertCharge = "
                               INSERT INTO charges (
                                                     number,
                                                     center, 
@@ -889,11 +962,18 @@ class PMSBase
                                                     '{$row['chargevalue']}',
                                                     '{$row['userpiva']}',
                                                     '{$row['usercf']}',
-                                                    '{$row['chargedescription']}'
+                                                    '{$description}'
                                                     )
-                             ");
+                             ";
+
+                $conn->query($sqlInsertCharge);
+                ( $conn->error ) ? $errMsg .= "Impossibile aggiungere il cedolino {$row['chargenum']}. Errore: " . $conn->error . PHP_EOL : ++$numCharges;
             }
         }
+
+        if ($errMsg != "") throw new Exception($errMsg);
+        ($numCharges == 0) ? $return = "Nessun nuovo cedolino da importare." : $return = "Importati correttamente {$numCharges} cedolini.";
+        return $return;
     }
 
     //controlla che il cedolino non sia stato già importato

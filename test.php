@@ -31,10 +31,45 @@ builder::Navbar('DataTable');
 
 <?php
 
-/*$db = new DB;
-$conn_sistemi = $db->getSistemiConn();
-$conn_amanda = $db->getProdConn('crm_punti');
-$query = "
+try {
+    $db = new DB;
+    //$conn_sistemi = $db->getSistemiConn();
+    $conn_amanda = $db->getProdConn('crm_punti');
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+$mail = new Mail();
+$plog = new PickLog();
+
+
+try {
+    $return = PMSBase::readCharges();
+    $content = $return;
+
+} catch (Exception $e) {
+    $content = $e->getMessage();
+    $smail = $mail->sendErrorEmail("<PRE>". $content . "</PRE>");
+    $logTitle = "Errore";
+} finally {
+    $params = array(
+        'app' => 'PMS',
+        'action' => 'DOM2_CEDOLINI_DL',
+        'content' => $content,
+        'user' => $_SESSION['user_name'],
+        'description' => "Lettura Cedolini da Dom2.",
+        'origin' => 'Dom2Server.[loc_cedolini]',
+        'destination' => 'DBServer.crm_punti.charges',);
+    Log::wLog($content,$logTitle);
+    $plog->sendLog($params);
+}
+
+echo "<PRE>". $content . "</PRE>";
+
+
+
+
+/* $query = "
               SELECT DocUniRigheFattVen.IdDocumento, 
                      cast(DocUniRigheFattVen.DatiIndDataPeriodoDA as varchar) as InvoiceDateFrom,
                      cast(DocUniRigheFattVen.DatiIndDataPeriodoA as varchar) as InvoiceDateTo,
@@ -58,7 +93,7 @@ $invoices_array = odbc_exec($conn_sistemi, $query);
 ( odbc_errormsg($conn_sistemi) ) ? $msg = "errore " . odbc_errormsg($conn_sistemi) : $msg = "OK!";
 echo $msg;*/
 
-PMSBase::CheckCreateUsers();
+//PMSBase::CheckCreateUsers();
 
 
 
