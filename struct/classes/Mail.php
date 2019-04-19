@@ -62,7 +62,9 @@ class Mail extends PHPMailer
         }
         $body .= "</tbody></table>";
         $mail = new Mail();
-        $mail->sendEmail($this->tomail,$this->toname,$this->frommail,$this->fromname,'Errori Accout',$body,$this->copies);
+        $smail = $mail->sendEmail($this->tomail,$this->toname,$this->frommail,$this->fromname,'Errori Accout',$body,$this->copies);
+        if (!$smail) throw new Exception("Impossibile inviare email con gli utenti incompleti. Errore: ". $mail->ErrorInfo);
+        else return $msg = "Email dettaglio utenti incompleti inviata correttamente.";
     }
 
     //for testing

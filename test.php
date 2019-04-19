@@ -33,7 +33,7 @@ builder::Navbar('DataTable');
 
 try {
     $db = new DB;
-    //$conn_sistemi = $db->getSistemiConn();
+    $conn_sistemi = $db->getSistemiConn();
     $conn_amanda = $db->getProdConn('crm_punti');
 } catch (Exception $e) {
     echo $e->getMessage();
@@ -43,9 +43,9 @@ $mail = new Mail();
 $plog = new PickLog();
 
 
-try {
-    $return = PMSBase::readCharges();
-    $content = $return;
+/*try {
+    $return = PMSBase::uploadCharges();
+    $content = "Sono stati aggiunti/aggiornati $return cedolini al sito.";
 
 } catch (Exception $e) {
     $content = $e->getMessage();
@@ -54,17 +54,23 @@ try {
 } finally {
     $params = array(
         'app' => 'PMS',
-        'action' => 'DOM2_CEDOLINI_DL',
+        'action' => 'CEDOLINI_SITO_UL',
         'content' => $content,
         'user' => $_SESSION['user_name'],
-        'description' => "Lettura Cedolini da Dom2.",
-        'origin' => 'Dom2Server.[loc_cedolini]',
-        'destination' => 'DBServer.crm_punti.charges',);
+        'description' => "Aggiornamento dei cedolini online.",
+        'origin' => 'DBServer.crm_punti.v_cherges',
+        'destination' => 'Siteground.pickcent_23.wpsd_wc_points_rewards_charges',);
     Log::wLog($content,$logTitle);
     $plog->sendLog($params);
-}
+}*/
 
-echo "<PRE>". $content . "</PRE>";
+//echo "<PRE>". $content . "</PRE>";
+require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/class-phpass.php';
+
+$pass = new PasswordHash(8,TRUE);
+
+
+echo $hashpass = $pass->HashPassword(trim("fm105pick"));
 
 
 

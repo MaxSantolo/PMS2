@@ -443,11 +443,16 @@ class PMSBase
 
         while ($user = $users->fetch_assoc()) {
             ($user['bookingmail'] != '') ? $mail = $user['bookingmail'] : $mail = $user['crmemail'];
-            self::AddUser($conn, $user['company'], $mail, $user['codfiscale'], $users['partitaiva'], $db->BPFirstLogin);
+            $addUser = self::AddUser($conn, $user['company'], $mail, $user['codfiscale'], $users['partitaiva'], $db->BPFirstLogin);
 
             $conn->query("UPDATE users SET status = 'signed' WHERE codfiscale = '{$user['codfiscale']}'");
             if ( $conn->error ) $errMsg .= "Impossibile accedere alla tabella crm_punti.users. Errore: " . $conn->error;
         }
+
+        (!$addUser['mailSent']) ? $msg = "Email utente non inviata." : $msg = "";
+        if ($msg != "" || $addUser['outMsg'] != "" || $errMsg != "" ) throw new Exception($msg . PHP_EOL . $addUser['outMsg'] . PHP_EOL . $errMsg);
+        else return $users->num_rows;
+
     }
 
     //aggiorna lo stato degli account a seconda della completezza dei dati
@@ -490,22 +495,25 @@ class PMSBase
     }
 
     //inserisce un utente nel sito - primo accesso
-    public function AddUser($conn, $name, $email, $cf, $piva, $bonusfirstlogin)
+    public static function AddUser($conn, $name, $email, $cf, $piva, $bonusfirstlogin)
     {
 
         $opText = "";
-        $opNum = 0;
-
 
         if (!self::Exists($conn, $email)) {
             $public_password = self::RandomString(8);
-            $password = md5($public_password);
+
+            //genero una password wp 5.5+ compliant
+            require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/class-phpass.php';
+            $pass = new PasswordHash(8,TRUE);
+            $password = $pass->HashPassword($public_password);
+
             $date = self::Now();
 
             $conn->query("INSERT INTO wpsd_users (user_login,user_pass,user_nicename,user_email,user_registered,display_name)
                       VALUES ('{$email}','{$password}','{$name}','{$email}','{$date}','{$name}')");
 
-            ($conn->error) ? $opText .= "Impossibile aggiungere l'utente {$email} al sito. Errore: " . $conn->error : ++$opNum;
+            if ($conn->error) $opText .= "Impossibile aggiungere l'utente {$email} al sito. Errore: " . $conn->error;
 
             //prendo l'id appena creato e mi salvo codice fiscale e partita iva
             $lastcreated = $conn->query("SELECT id FROM wpsd_users WHERE user_login = '{$email}'")->fetch_assoc();
@@ -523,6 +531,9 @@ class PMSBase
             $smail = $mail->sendEmail($email,$name,$subject,$body,$mail->copies);
             Log::wLog("Aggiunto l'utente id: {$id} con email: {$email}", "Inserimento");
         } else Log::wLog("Utente con email: {$email} presente", "Errore inserimento");
+
+        $return = array("outMsg"=>$opText,"mailSent"=>$smail);
+        return $return;
     }
 
     //prende book id e book email dal sito se già registrato
@@ -544,6 +555,8 @@ class PMSBase
         }
         return $book_data;
     }
+
+
 
     // ---------------------------- AGGIUNTA PUNTI -----------------------------------------------//
 
@@ -577,17 +590,34 @@ class PMSBase
     public static function generateCredits() {
         $db = new DB();
         $conn = $db->getProdConn('crm_punti');
+        $errMsg = "";
+        $counter = 0;
         //genero l'array dei sql che generano punti
+
         $restypes = $conn->query("SELECT distinct(restype) FROM credits_schema");
+        if ($conn->error)
+        { $errMsg = "Impossibile accedere alla tabella delle opzioni." . PHP_EOL . "Errore: " . $conn->error;
+          Log::wLog($errMsg,"Errore critico");
+          die($errMsg);
+        }
+
+
         while ($restype = $restypes->fetch_assoc()) {
-            echo $sqls[$restype['restype']] = $db->sqlInvIdenCreds($db->getSQLParams($restype['restype']), true);
+            $sqls[$restype['restype']] = $db->sqlInvIdenCreds($db->getSQLParams($restype['restype']), true);
         }
         foreach ($sqls as $title => $value) {
 
-            //echo $title . " | " . $value . "<BR>"; //test
+
             $invoiceids = $conn->query($value);
+            if ($conn->error) {
+                $errMsg = "Impossibile eseguire la query: " . $value . PHP_EOL . "Errore: " . $conn->error;
+                Log::wLog($errMsg,"Errore critico");
+                die($errMsg);
+            }
+
             while ($id = $invoiceids->fetch_assoc()) {
                 if (!self::creditExists($conn, $id['id'])) { //se l'accredito legato alla fattura già esiste lo lascia come lo trova
+
                     $now = PMSBase::Now();
 
                     $status = self::setCreditStatus($id['points'], $id['status'], $id['active']);
@@ -595,15 +625,21 @@ class PMSBase
                     $conn->query("INSERT INTO credits (invoiceid, bookid, date, points, origin, status, active)
                                     VALUES ('{$id['id']}', '{$id['bookid']}', '{$now}', '{$points}', '{$id['status']}', '{$status}', '{$id['active']}')");
 
+                    if ($conn->error) $errMsg .= "Impossibile inserire accredito per Bookid: " . $id['bookid'] . PHP_EOL . "Errore: " . $conn->error . PHP_EOL;
+                    else ++$counter;
+
                     //controlla e aggiorna la continuità contrattuale e la crea solo per gli account attivi
                     if ($id['active'] == 1) {
                         Log::wLog("Aggiunto accredito per {$id['codfiscale']}","Accrediti"); //loggo solo gli accrediti pronti ad essere utilizzati
                         PMSBase::calcMonthsContinuity($conn, $id['codfiscale'], $id['status'], $db->CToleranceDays, $now, $id['months']);
-                        PMSBase::createAnniversaryBirthdayCredit($conn,$id['codfiscale'],$db->BPAnniversary,$id['bookid']);
+                        $counter += PMSBase::createAnniversaryBirthdayCredit($conn,$id['codfiscale'],$db->BPAnniversary,$id['bookid']);
                     }
-                } else echo $id['id']."<br>";
+                } //else echo $id['id']."<br>";
             }
         }
+
+        if ($errMsg != "") throw new Exception($errMsg); else return $counter;
+
     }
 
     //modifica lo stato degli accrediti in base al valore di punti, servizio e attività
@@ -625,9 +661,23 @@ class PMSBase
     //sentlost = accrediti a cui è stata inviata mail con esito
     public static function addCreditsToSite() {
         $db = new DB();
+
+        $lostSentCnt = 0;
+        $creditedCnt = 0;
+        $annBirthCnt = 0;
+        $errMsg = "";
+
+
         $conn = $db->getProdConn('crm_punti');
+
         //accrediti da fatture
         $credits = $conn->query("SELECT * FROM v_credits");
+
+        if ($conn->error) {
+            $errMsg = "Impossibile connettersi alla tabella degli accrediti. Errore: " . $conn->error;
+            Log::wLog($errMsg);
+            die($errMsg);
+        }
 
         while ($credit = $credits->fetch_assoc()) {
             $status = $credit['status'];
@@ -637,20 +687,34 @@ class PMSBase
             if ($status == 'ready') {
                 self::AddPoints($credit['bookid'], $credit['points']);
                 $conn->query("UPDATE credits SET status = 'credited' WHERE id = '{$credit['id']}'");
-                //invia mail accredito
+
+                //controllo errore altrimenti conto
+                if ($conn->error) $errMsg .= "Impossibile aggiornare accredito {$credit['id']}. Errore: " . $conn->error . PHP_EOL;
+                else ++$creditedCnt;
+
+                //prepara la mail mail accredito
                 $maildata = $mailtosend->bodyCredit($credit['company'],$credit['points']);
                 $body = $mailtosend->mailHeaderFooter($maildata['body']);
                 $subject = $maildata['subject'];
             }
             if ($status == 'lost') {
                 $conn->query("UPDATE credits SET status = 'sentlost' WHERE id = '{$credit['id']}'");
-                //invia mail cliente - accredito mancato
+
+                //controllo errore altrimenti conto
+                if ($conn->error) $errMsg .= "Impossibile aggiornare accredito {$credit['id']}. Errore: " . $conn->error . PHP_EOL;
+                else ++$lostSentCnt;
+
+                //prepara la mail cliente - accredito mancato
                 $maildata = $mailtosend->bodyMissed($credit['company']);
                 $body = $mailtosend->mailHeaderFooter($maildata['body']);
                 $subject = $maildata['subject'];
             }
+
             $smail = $mailtosend->sendEmail($mail,$credit['company'],$subject,$body,$mailtosend->copies);
+            if (!$smail) $errMsg .= "Impossibile inviare la mail di accredito aggiunto/perso a {$mail}." . PHP_EOL;
         }
+
+
         //compleanni e anniversari
         $bdays = $conn->query("SELECT * FROM v_credits_anniversaries");
 
@@ -663,6 +727,11 @@ class PMSBase
                 //assegna i punti e aggiorna l'accredito
                 self::AddPoints($bday['bookid'], $bday['points']);
                 $conn->query("UPDATE credits SET status = 'credited' WHERE id = '{$bday['id']}'");
+
+                //controllo errore altrimenti conto
+                if ($conn->error) $errMsg .= "Impossibile aggiornare accredito {$credit['id']}. Errore: " . $conn->error . PHP_EOL;
+                else ++$annBirthCnt;
+
                 //mail e log per auguri di compleanno/anniversario
                 if ($bday['origin'] == 'ANNIVERSARY') {
                     $maildata = $mailtosend->bodyAnniversary($bday['company'],$bday['points']);
@@ -674,16 +743,25 @@ class PMSBase
                 }
                 $body = $mailtosend->mailHeaderFooter($maildata['body']);
                 $subject = $maildata['subject'];
+
+
                 $smail = $mailtosend->sendEmail($mail,$bday['company'],$subject,$body,$mailtosend->copies);
+                if (!$smail) $errMsg .= "Impossibile inviare la mail di accredito aggiunto/perso a {$mail}." . PHP_EOL;
+
                 Log::wLog("Accreditato bonus di {$bday['points']} per utente {$bday['bookid']}",$logtype);
             }
         }
+
+        if ($errMsg != "") throw new Exception ($errMsg);
+        else return $message = "Caricati {$creditedCnt} accrediti regolari e {$annBirthCnt} accrediti per compleanno o anniversario. Scartati {$lostSentCnt} accrediti.";
     }
 
     //forza un accredito senza collegarlo automaticamente ad una fattura che però può essere indicata
     public static function forceCredit($conn,$bookid,$date,$points,$origin='BONUS', $status='ready',$note = NULL,$invoiceid='') {
         $active = DB::getUserData($conn,$bookid)['active'];
         $conn->query("INSERT INTO credits (bookid, date, points, origin, status, active, note, invoiceid) VALUES ('{$bookid}','{$date}','{$points}','{$origin}','{$status}','{$active}','{$note}','{$invoiceid}')");
+
+        if ($conn->error) return false; else return true;
     }
 
     //---------------------------CONTINUITY----------------------------//
@@ -722,7 +800,7 @@ class PMSBase
     public static function generateContinuityCredits(){
         $db = new DB();
         $conn = $db->getProdConn('crm_punti');
-        $conts = $conn->query("SELECT continuity.*, users.bookid FROM crm_punti.continuity left join users on continuity.codfiscale = users.codfiscale ");
+        $conts = $conn->query("SELECT continuity.*, users.bookid, users.company, users.bookingmail FROM crm_punti.continuity left join users on continuity.codfiscale = users.codfiscale ");
         while ($cont = $conts->fetch_assoc()) {
             $cycle = DB::getSchemaParam($conn,$cont['restype'],'MesiRinnovo');
             $bonuspoints = DB::getSchemaParam($conn,$cont['restype'],'Fedelta');
@@ -731,11 +809,22 @@ class PMSBase
                 $now = PMSBase::Now();
                 $totalpoints = $bonuscreditsnumber*$bonuspoints;
                 $conn->query("UPDATE continuity SET bonuscredits = '{$bonuscreditsnumber}' WHERE id = '{$cont['id']}'");
-                self::forceCredit($conn,$cont['bookid'],$now,$totalpoints,'RENEWAL');
+                $forceCredit = self::forceCredit($conn,$cont['bookid'],$now,$totalpoints,'RENEWAL');
                 Log::wLog("Accreditati {$totalpoints} bonus per continutit&agrave; contrattuale ({$cont['restype']}) al cliente con id: {$cont['bookid']}",'Bonus fedelt&agrave;');
-                //TODO: mail per accredito bonus
+
+                //mail per accredito bonus
+
+                $mail = new Mail();
+                $body = $mail->bodyFidelity($cont['company'],$totalpoints,$cycle);
+                $smail = $mail->sendEmail($cont['bookingmail'],$cont['company'],$body['subject'],$body['body'],$mail->copies);
+
             }
         }
+
+        //se ok ritorna messaggio altrimenti eccezione
+        if ( $smail && $forceCredit) return $msg = "Accreditati {$totalpoints} bonus per continutit&agrave; contrattuale ({$cont['restype']}) al cliente con id: {$cont['bookid']}";
+        else throw new Exception("Impossibile creare e comunicare {$totalpoints} bonus per continutit&agrave; contrattuale ({$cont['restype']}) al cliente con id: {$cont['bookid']} ");
+
     }
 
     //crea la continuità contrattuale per gli utenti che non ce l'hanno - non in uso la funzione viene chiamata parametrizzata dentro calcMonthsContinuity
@@ -765,6 +854,8 @@ class PMSBase
         $substrtocheck = substr($cf,0,6);
         $test = strpbrk($substrtocheck, '1234567890') !== FALSE; //contiene numeri?
         $year = date('Y', strtotime(self::Now()));
+        $errMsg = "";
+
         if ($test) {
             //azienda seleziona la ricevuta più vecchia importata
             $invoice = $conn->query("SELECT first_invoice FROM v_continuity WHERE codfiscale = '{$cf}' ORDER BY first_invoice limit 1")->fetch_assoc();
@@ -785,14 +876,23 @@ class PMSBase
 
         //Controllo se già non è presente un accredito
         $exist = $conn->query("SELECT id FROM credits WHERE bookid={$bookid} AND origin IN('BIRTHDAY','ANNIVERSARY')")->fetch_assoc();
+        if ($conn->error) {
+            $errMsg = "Impossibile accedere alla tabella degli accrediti. Errore: " . $conn->error;
+            Log::wLog($errMsg,"Errore critico");
+            die($errMsg);
+        }
 
-        //WARNING: gli accrediti di anniversario/compleanno vengono aggiunti con origine "ANNBIRTH" e fattura collegata (invoiceid) NULL
+        $counter = 0;
+        //WARNING: gli accrediti di anniversario/compleanno vengono aggiunti con origine "ANNIVERSARY" "BIRTHDAY" e fattura collegata (invoiceid) NULL
         if ($exist['id'] == NULL) {
             $conn->query("INSERT INTO credits (invoiceid, bookid, date, points, origin, status, active) 
                       VALUES (NULL,'{$bookid}','{$date}','{$points}','{$origin}','ready','1')");
+
+            ++$counter;
             Log::wLog("Aggiunto un accredito {$origin} per {$cf} alla data {$date}","Accrediti" );
         }
 
+        return $counter;
     }
 
     public static function updAnniversaryBirthdayNewYear() {
@@ -800,16 +900,33 @@ class PMSBase
         //deve essere eseguito in un cronjob il 31/12 per avere la possibilità di fare gli auguri a chi ha compleanno/anniversario il primo dell'anno
 
         $db = new DB();
+        $errMsg = "";
         $conn = $db->getProdConn('crm_punti');
 
-        $anniversaries = $conn->query("SELECT id,date,origin FROM credits WHERE origin='ANNBIRTH' AND active = 1");
+        $anniversaries = $conn->query("SELECT id,date,origin FROM credits WHERE origin IN ('ANNIVERSARY','BIRTHDAY') AND active = 1");
+
+        if ($conn->error) {
+            $connErrMsg = "Impossibile accedere alla tabella degli accrediti. Errore: " . $conn->error;
+            Log::wLog($connErrMsg);
+            die($connErrMsg);
+        }
+
         while ($ann = $anniversaries->fetch_assoc()) {
             $newdate = date('Y-m-d H:i:s', strtotime($ann['date'] . '+ 1 year'));
             $conn->query("UPDATE credits SET date = '{$newdate}', status = 'ready' WHERE id = '{$ann['id']}'");
+
+            if ($conn->error) $errMsg .= "Impossibile aggiornare anniversario / compleanno {$ann['id']}. Errore: " . $conn->error . PHP_EOL;
+
         }
 
-        Log::wLog("Tutti gli anniversari\compleanni sono stati aggiornati","Anniversari\Compleanni");
-
+        if ($errMsg != "") throw new Exception($errMsg);
+        else {
+            if ($anniversaries->num_rows == 0) throw new Exception("Nessun anniversario trovato da aggiornamento");
+            else {
+                Log::wLog("Tutti gli anniversari\compleanni sono stati aggiornati","Anniversari\Compleanni");
+                return $anniversaries->num_rows;
+            }
+        }
     }
 
     public static function codfiscMonth($month) {
@@ -986,6 +1103,10 @@ class PMSBase
     public static function uploadCharges() {
 
         $db = new DB();
+
+        $errMsg = "";
+        $counter = 0;
+
         $conn = $db->getProdConn('crm_punti');
         $siteconn = $db->getSiteConn();
 
@@ -998,6 +1119,14 @@ class PMSBase
         $enddate = builder::cDateCreate($now,'Y-m-t');
 
         $charges = $conn->query("SELECT * FROM v_charges WHERE datestart BETWEEN '{$startdate}' AND '{$enddate}'");
+
+        if ( $conn->error ) {
+
+            $errMsg = "Impossibile accedere alla tabella dei cedolini. Errore: " . $conn->error;
+            Log::wLog($errMsg);
+            die($errMsg);
+
+        }
 
         while ($chr = $charges->fetch_assoc()) {
 
@@ -1032,8 +1161,13 @@ class PMSBase
                                                 '{$chr['company']}',
                                                 '{$chr['bookid']}'
                                     ) ");
-        }
 
+            if ($siteconn->error) $errMsg .= "Impossibile aggiungere il cedolino {$chr['number']} al sito per il cliente {$chr['company']}. Errore: " . $siteconn->error . PHP_EOL;
+            else ++$counter;
+
+        }
+        if ($errMsg == "") return $counter;
+        else throw new Exception($errMsg);
     }
 
     //scarica le richieste di addebito punti dal sito dalla tabella wpsd_wc_points_rewards_charges_requests
@@ -1045,11 +1179,21 @@ class PMSBase
 
         $dataToDownload = $siteConn->query("SELECT * FROM wpsd_wc_points_rewards_charges_requests WHERE downloaded = 0");
 
+        if ($siteConn->error) {
+            $connErrMsg = "Impossibile connettersi alla tabella wpsd_wc_points_rewards_charges_requests. Errore: " . $siteConn->error;
+            Log::wLog($connErrMsg);
+            die($connErrMsg);
+        }
+
         while ($data = $dataToDownload->fetch_assoc()) {
             $prodConn->query("INSERT INTO debit_requests (date, bookid, points) VALUES ('{$data['date']}','{$data['bookid']}','{$data['points']}')");
+
+            if ($prodConn->error) $errMsg = "Impossibile scaricare la richiesta {$data['id']}. Errore: " . $prodConn->error . PHP_EOL;
         }
 
         $siteConn->query("UPDATE wpsd_wc_points_rewards_charges_requests SET downloaded = 1"); //segna tutte le richieste come scaricate
+
+        if ($errMsg != "") return $dataToDownload->num_rows; else throw new Exception($errMsg);
     }
 
     //esegue le richieste di addebito punti
@@ -1183,16 +1327,19 @@ class PMSBase
                     )                                             
                     ";
                     odbc_exec($dom2Conn, $sql);
+                    if (odbc_error($dom2Conn)) $errMsg = "Impossibile aggiungere il cedolino {$cedoNum}. Errore: " . odbc_errormsg($dom2Conn);
                 }
 
 
             }
             $emailbody .= "</tbody></table>"; //chiudo il body della mail
 
-            $conn->query("UPDATE debit_requests SET executed = 1 WHERE executed = 0"); //segno tutte le richieste di addebito a 0
-            Log::wLog("Aggiunti i cedolini di sconto","Cedolini addebito punti"); //scrivo il log dell'operazione
-            return $emailbody; //ritorno il corpo della mail per la notifica
-        } else return null; //se non trovo risultati restituisco null
+            if ($errMsg == "") {
+                $conn->query("UPDATE debit_requests SET executed = 1 WHERE executed = 0"); //segno tutte le richieste di addebito a 0
+                Log::wLog("Aggiunti i cedolini di sconto", "Cedolini addebito punti"); //scrivo il log dell'operazione
+                return $emailbody; //ritorno il corpo della mail per la notifica
+            } else throw new Exception($errMsg);
+        } else throw new Exception("Non ho trovato cedolini da caricare."); //se non trovo risultati restituisco null
     }
 
 

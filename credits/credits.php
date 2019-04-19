@@ -62,7 +62,7 @@ builder::Navbar('DataTable')
 		        while($credit = $credits->fetch_assoc()) {
 
                 $date = date('d-m-Y',strtotime($credit['date']));
-                $email = builder::showEmail($credit["bookingmail"],$credit["crmemail"],'La mail di iscrizione e quella sul CRM non coincidono','../images/danger.png');
+                $email = builder::showEmail($credit["bookingmail"],$credit["crmemail"],'La mail di iscrizione e quella sul CRM non coincidono','/images/danger.png','/images/swc_mail_icon.png','Email CRM');
                 $crmicon = "";
                 $button = builder::showEditCreditButton($credit['origin'],$credit['status']); //sceglie che pulsante mostrare
 
