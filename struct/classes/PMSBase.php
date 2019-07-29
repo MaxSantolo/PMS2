@@ -99,21 +99,18 @@ class PMSBase
         //print_r($invoices);
         
 
-
+        //todo: mettere count per ciave primaria?
 
         foreach($invoices as $invoice) {
         //while ($invoice = sqlsrv_fetch_array($invoices_array, SQLSRV_FETCH_ASSOC)) {
 
-            $pk = md5($invoice['IdDocumento'] . $invoice['DesEstesa']);
-
-            //echo $pk  . ' | '. var_dump(self::CheckInvoiceStatus($conn_amanda,$pk));
-            //echo '<br>';
+            $pk = md5($invoice['IdDocumento'] . $invoice['DesEstesa']); //genero una chiave primaria non avendone una presente nella riga di fattura
 
             if (!self::CheckInvoiceStatus($conn_amanda, $pk)) {
                 $invoice_date_from = self::DateItalianToSQL($invoice['InvoiceDateFrom'], 'Y-m-d');
                 $invoice_date_to = self::DateItalianToSQL($invoice['InvoiceDateTo'], 'Y-m-d');
                 $value = (int)((float)$invoice['ImportoValuta'] * 100);
-                $extdescr = str_replace("'", "\'", $invoice['DesEstesa']); //strip apostrofi
+                $extdescr = str_replace("'", "\'", $invoice['DesEstesa']); //strip apostrofi todo: sostituire ovunque con mysqli_real_escape_string
                 $socname1 = str_replace("'", "\'", $invoice['RagSoc1']); //strip apostrofi
                 $socname2 = str_replace("'", "\'", $invoice['RagSoc2']); //strip apostrofi
 

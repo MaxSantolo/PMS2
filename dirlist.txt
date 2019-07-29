@@ -1,0 +1,36 @@
+ Il volume nell'unit… B Š www
+ Numero di serie del volume: F818-73BB
+
+ Directory di B:\
+
+24/05/2019  10:38    <DIR>          .
+11/04/2019  16:02    <DIR>          ..
+03/04/2019  11:41    <DIR>          aspnet_client
+03/04/2019  11:41    <DIR>          bin
+18/04/2019  11:07    <DIR>          credits
+19/04/2019  10:39    <DIR>          crons
+03/04/2019  11:42    <DIR>          css
+03/04/2019  11:42    <DIR>          datatables
+03/04/2019  11:42    <DIR>          db
+24/05/2019  10:38                94 dirlist.txt
+03/04/2019  11:42    <DIR>          images
+05/03/2019  14:11             2.640 index.php
+17/04/2019  12:02    <DIR>          invoices
+22/02/2017  17:24               107 logout.php
+03/04/2019  11:42    <DIR>          logs
+03/04/2019  11:42    <DIR>          mdbootstrap
+05/03/2019  15:51               610 menu.php
+03/04/2019  11:42    <DIR>          options
+18/04/2019  10:25             1.055 points.ini
+08/04/2019  13:17               763 README.md
+03/04/2019  11:42    <DIR>          receipts
+06/11/2018  10:17               205 session.php
+03/04/2019  11:42    <DIR>          struct
+03/04/2019  11:42    <DIR>          tech
+18/04/2019  16:43             3.657 test.php
+02/04/2017  20:48            13.824 Thumbs.db
+03/04/2019  11:42    <DIR>          users
+25/03/2017  21:44               590 web.config
+24/09/2013  11:39           184.946 welcome.png
+              11 File        208.491 byte
+              18 Directory  46.306.000.896 byte disponibili

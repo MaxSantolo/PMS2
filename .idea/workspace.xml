@@ -33,113 +33,54 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="crm_punti: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm_punti@192.168.1.10" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="crm_punti: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="Sitegroud" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Sitegroud" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Sitegroud" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="pickcent_23: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Sitegroud" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="pickcent_23: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="wpsd_wc_points_rewards_charges_requests: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="credits.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/credits/credits.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1044">
-              <caret line="64" column="203" selection-start-line="64" selection-start-column="203" selection-end-line="64" selection-end-column="203" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/users.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1620">
-              <caret line="90" column="199" selection-start-line="90" selection-start-column="160" selection-end-line="90" selection-end-column="199" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="primary_daily.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crons/primary_daily.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="109" column="1" lean-forward="true" selection-start-line="89" selection-end-line="109" selection-end-column="1" />
+            <state relative-caret-position="1512">
+              <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/struct/classes/Mail.php">
+      <file leaf-file-name="points.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/points.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="66" column="86" lean-forward="true" selection-start-line="66" selection-start-column="86" selection-end-line="66" selection-end-column="86" />
-              <folding>
-                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#testValues#0;n#Mail#0;n#!!top" />
-                <element signature="n#mailHeaderFooter#0;n#Mail#0;n#!!top" />
-                <element signature="n#bodyWelcome#0;n#Mail#0;n#!!top" />
-                <element signature="n#bodyBalancePromo#0;n#Mail#0;n#!!top" />
-                <element signature="n#bodyBalance#0;n#Mail#0;n#!!top" />
-                <element signature="n#bodyCredit#0;n#Mail#0;n#!!top" />
-                <element signature="n#bodyMissed#0;n#Mail#0;n#!!top" />
-                <element signature="n#bodyBirthday#0;n#Mail#0;n#!!top" />
-                <element signature="n#bodyAnniversary#0;n#Mail#0;n#!!top" />
-                <element signature="e#20#45#0" expanded="true" />
-                <element signature="e#201#209#1" expanded="true" />
-                <element signature="e#273#298#0" expanded="true" />
-                <element signature="e#354#379#0" expanded="true" />
-                <element signature="e#447#455#1" expanded="true" />
-                <element signature="e#474#482#1" expanded="true" />
-                <element signature="e#571#579#1" expanded="true" />
-                <element signature="e#686#711#0" expanded="true" />
-                <element signature="n#sendErrorEmail#0;n#Mail#0;n#!!top" />
-              </folding>
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="receipts.ajax.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/receipts/receipts.ajax.php">
+      <file leaf-file-name="list.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crons/list.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="70" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
+            <state relative-caret-position="126">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invoices.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/invoices/invoices.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invoices.ajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/invoices/invoices.ajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -147,66 +88,43 @@
       <file leaf-file-name="PMSBase.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/struct/classes/PMSBase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="996" lean-forward="true" selection-start-line="996" selection-end-line="996" />
+            <state relative-caret-position="126">
+              <caret line="766" column="27" selection-start-line="766" selection-start-column="27" selection-end-line="766" selection-end-column="27" />
               <folding>
-                <element signature="e#6#308#0#PHP" expanded="true" />
-                <element signature="n#DateToItalian#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#DateItalianToSQL#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#isCRM#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#RandomString#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#ReadInvoices#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#CheckInvoiceStatus#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#SetInvoice#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#GetCRMData#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#updateInvoicesStatus#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#CheckUser#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#CheckCreateUsers#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#UpdateUsers#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#createOnlineAccounts#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#Status#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#Exists#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#HasLogged#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#AddUser#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#GetBookData#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#AddPoints#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#AddUserMeta#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#generateCredits#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#setCreditStatus#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#creditExists#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#addCreditsToSite#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#forceCredit#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#calcMonthsContinuity#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#generateContinuityCredits#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#createContinuities#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#createAnniversaryBirthdayCredit#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#updAnniversaryBirthdayNewYear#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#codfiscMonth#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#promoPoints#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#calcPoints#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#readCharges#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#chargeExists#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#uploadCharges#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#downloadChargesRequests#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#execChargesRequests#0;n#PMSBase#0;n#!!top" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DB.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/struct/classes/DB.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6624">
+              <caret line="373" column="43" selection-start-line="373" selection-start-column="43" selection-end-line="373" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="session.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/session.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="receipts.ajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/receipts/receipts.ajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Log.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/struct/classes/Log.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -222,7 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$crm_data['email']</find>
       <find>adduser</find>
       <find>mail</find>
       <find>$email</find>
@@ -252,6 +169,7 @@
       <find>WPSD_WC_POINT</find>
       <find>DOWNLOAD</find>
       <find>$conn-&gt;error</find>
+      <find>wwwww</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -275,7 +193,6 @@
         <option value="$PROJECT_DIR$/options/general.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/menu.php" />
-        <option value="$PROJECT_DIR$/struct/classes/Log.php" />
         <option value="$PROJECT_DIR$/users/users.ajax.php" />
         <option value="$PROJECT_DIR$/options/promos.php" />
         <option value="$PROJECT_DIR$/debits/debits.php" />
@@ -288,7 +205,6 @@
         <option value="$PROJECT_DIR$/options/edit_ini_file.php" />
         <option value="$PROJECT_DIR$/struct/classes/builder.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/struct/classes/DB.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/invoices/invoices.php" />
         <option value="$PROJECT_DIR$/invoices/invoices.ajax.php" />
@@ -300,8 +216,10 @@
         <option value="$PROJECT_DIR$/crons/monthly.php" />
         <option value="$PROJECT_DIR$/crons/primary_daily.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6d4d4e3b-4f81-4b64-a253-5e22b7773180/console.sql" />
-        <option value="$PROJECT_DIR$/struct/classes/PMSBase.php" />
         <option value="$PROJECT_DIR$/crons/yearly.php" />
+        <option value="$PROJECT_DIR$/struct/classes/DB.php" />
+        <option value="$PROJECT_DIR$/struct/classes/Log.php" />
+        <option value="$PROJECT_DIR$/struct/classes/PMSBase.php" />
       </list>
     </option>
   </component>
@@ -331,7 +249,7 @@
       <path value="$PROJECT_DIR$/bin/vendor/guzzlehttp/guzzle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -348,21 +266,6 @@
             <path>
               <item name="points" type="b2602c69:ProjectViewProjectNode" />
               <item name="points" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="points" type="b2602c69:ProjectViewProjectNode" />
-              <item name="points" type="462c0819:PsiDirectoryNode" />
-              <item name="credits" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="points" type="b2602c69:ProjectViewProjectNode" />
-              <item name="points" type="462c0819:PsiDirectoryNode" />
-              <item name="crons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="points" type="b2602c69:ProjectViewProjectNode" />
-              <item name="points" type="462c0819:PsiDirectoryNode" />
-              <item name="invoices" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="points" type="b2602c69:ProjectViewProjectNode" />
@@ -397,22 +300,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="SQL Server (Microsoft)&#10;MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="W:/acs2" />
+    <property name="last_opened_file_path" value="T:/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="U:\points\users" />
+      <recent name="U:\points\crons" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="W:\points\struct\classes" />
       <recent name="U:\points\crons" />
       <recent name="U:\points\receipts" />
       <recent name="U:\points\debits" />
       <recent name="U:\points\options" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="U:\points\users" />
-      <recent name="U:\points\crons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -514,26 +417,36 @@
       <workItem from="1555482869805" duration="16069000" />
       <workItem from="1555569316794" duration="17438000" />
       <workItem from="1555659508576" duration="4371000" />
+      <workItem from="1555670899715" duration="612000" />
+      <workItem from="1556011753887" duration="626000" />
+      <workItem from="1556030958047" duration="365000" />
+      <workItem from="1556099700245" duration="609000" />
+      <workItem from="1556111744075" duration="2463000" />
+      <workItem from="1556550646291" duration="253000" />
+      <workItem from="1557138750166" duration="899000" />
+      <workItem from="1562315443528" duration="1065000" />
+      <workItem from="1562655775029" duration="112000" />
+      <workItem from="1563962438393" duration="3898000" />
+      <workItem from="1564128075725" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="547699000" />
+    <option name="totallyTimeSpent" value="559200000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16875" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17760417" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16875" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17760417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -543,7 +456,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="11" weight="0.24945533" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.0" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +472,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="26" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -572,9 +485,6 @@
           <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/session.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/options/options.ajax.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -628,13 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crons/list.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://T:/custom/modules/Emails/EmailsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -683,20 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/credits/credits.ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="23" column="22" selection-start-line="1" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/struct/classes/Log.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://6d4d4e3b-4f81-4b64-a253-5e22b7773180/schema/crm_punti/table/credits_schema">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -714,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/invoices/invoices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -730,20 +612,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/struct/classes/PickLog.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/invoices/invoices.ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="55" column="27" lean-forward="true" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/points.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/struct/classes/builder.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -789,43 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/receipts/receipts.ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="70" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/struct/classes/Mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="66" column="86" lean-forward="true" selection-start-line="66" selection-start-column="86" selection-end-line="66" selection-end-column="86" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#testValues#0;n#Mail#0;n#!!top" />
-            <element signature="n#mailHeaderFooter#0;n#Mail#0;n#!!top" />
-            <element signature="n#bodyWelcome#0;n#Mail#0;n#!!top" />
-            <element signature="n#bodyBalancePromo#0;n#Mail#0;n#!!top" />
-            <element signature="n#bodyBalance#0;n#Mail#0;n#!!top" />
-            <element signature="n#bodyCredit#0;n#Mail#0;n#!!top" />
-            <element signature="n#bodyMissed#0;n#Mail#0;n#!!top" />
-            <element signature="n#bodyBirthday#0;n#Mail#0;n#!!top" />
-            <element signature="n#bodyAnniversary#0;n#Mail#0;n#!!top" />
-            <element signature="e#20#45#0" expanded="true" />
-            <element signature="e#201#209#1" expanded="true" />
-            <element signature="e#273#298#0" expanded="true" />
-            <element signature="e#354#379#0" expanded="true" />
-            <element signature="e#447#455#1" expanded="true" />
-            <element signature="e#474#482#1" expanded="true" />
-            <element signature="e#571#579#1" expanded="true" />
-            <element signature="e#686#711#0" expanded="true" />
-            <element signature="n#sendErrorEmail#0;n#Mail#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crons/monthly.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -854,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crons/primary_daily.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="109" column="1" lean-forward="true" selection-start-line="89" selection-end-line="109" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crons/yearly.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
@@ -868,78 +692,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/crons/primary_daily.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/struct/classes/Mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/credits/credits.ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="23" column="22" selection-start-line="1" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/struct/classes/Log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/invoices/invoices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/invoices/invoices.ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/session.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/points.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crons/list.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/receipts/receipts.ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/struct/classes/DB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="326" column="27" selection-start-line="326" selection-start-column="27" selection-end-line="326" selection-end-column="27" />
-          <folding>
-            <element signature="n#arrayMaxPointsCategory#0;n#DB#0;n#!!top" />
-            <element signature="n#chargesToDo#0;n#DB#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="6624">
+          <caret line="373" column="43" selection-start-line="373" selection-start-column="43" selection-end-line="373" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/struct/classes/PMSBase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="996" lean-forward="true" selection-start-line="996" selection-end-line="996" />
+        <state relative-caret-position="126">
+          <caret line="766" column="27" selection-start-line="766" selection-start-column="27" selection-end-line="766" selection-end-column="27" />
           <folding>
-            <element signature="e#6#308#0#PHP" expanded="true" />
-            <element signature="n#DateToItalian#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#DateItalianToSQL#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#isCRM#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#RandomString#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#ReadInvoices#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#CheckInvoiceStatus#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#SetInvoice#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#GetCRMData#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#updateInvoicesStatus#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#CheckUser#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#CheckCreateUsers#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#UpdateUsers#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#createOnlineAccounts#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#Status#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#Exists#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#HasLogged#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#AddUser#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#GetBookData#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#AddPoints#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#AddUserMeta#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#generateCredits#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#setCreditStatus#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#creditExists#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#addCreditsToSite#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#forceCredit#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#calcMonthsContinuity#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#generateContinuityCredits#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#createContinuities#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#createAnniversaryBirthdayCredit#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#updAnniversaryBirthdayNewYear#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#codfiscMonth#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#promoPoints#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#calcPoints#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#readCharges#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#chargeExists#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#uploadCharges#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#downloadChargesRequests#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#execChargesRequests#0;n#PMSBase#0;n#!!top" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
