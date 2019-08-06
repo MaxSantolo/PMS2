@@ -4,6 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/builder.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/struct/classes/PMSBase.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/DB.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/Log.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/PickLog.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/tech/class/PHPMailerAutoload.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/struct/classes/Mail.php';
 
@@ -17,7 +18,7 @@ $mail = New Mail();
 //aggiunge al sito i cedolini scaricati del mese in corso, logga e manda mail in caso di errore
 try {
     $return = PMSBase::uploadCharges();
-    $content = "Sono stati aggiunti/aggiornati $return cedolini al sito.";
+    echo $content = "Sono stati aggiunti/aggiornati $return cedolini al sito.";
 
 } catch (Exception $e) {
     $content = $e->getMessage();
@@ -61,7 +62,7 @@ try {
 //scarica dal sito le richieste di accredito
 try {
     $return = PMSBase::downloadChargesRequests();
-    $content = "Sono state scaricate {$return} richieste di addebito punti sui cedolini.";
+    echo $content = "Sono state scaricate {$return} richieste di addebito punti sui cedolini.";
 
 } catch (Exception $e) {
     $content = $e->getMessage();
