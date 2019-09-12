@@ -99,7 +99,7 @@ class PMSBase
         //print_r($invoices);
         
 
-        //todo: mettere count per ciave primaria?
+        //todo: mettere count per chiave primaria?
 
         foreach($invoices as $invoice) {
         //while ($invoice = sqlsrv_fetch_array($invoices_array, SQLSRV_FETCH_ASSOC)) {

@@ -1,7 +1,6 @@
 Primario - tutte le sere ore 23:00, circa 15 minuti
 primary_daily.php
     PMSBase::ReadInvoices();
-    PMSBase::
     PMSBase::CheckCreateUsers();
     PMSBase::UpdateUsers();
     PMSBase::updateInvoicesStatus();

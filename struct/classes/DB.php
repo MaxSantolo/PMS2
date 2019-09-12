@@ -65,7 +65,7 @@ class DB
         return $conn;
     }
 
-    //genera connessione a Siteground
+    //genera connessione a Siteground - hosting
     function getSiteConn() {
         $servername = $this->SiteGround;
         $username = $this->SiteGroundUserName;
